@@ -19,14 +19,14 @@ library("badger")
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/quanteda.sentiment)](https://cran.r-project.org/package=quanteda.sentiment)
 `r badge_devel("quanteda/quanteda.sentiment", "royalblue")`
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![Coverage Status](https://img.shields.io/codecov/c/github/quanteda/quanteda.sentiment/master.svg)](https://codecov.io/github/quanteda/quanteda.sentiment?branch=master)
+[![R build status](https://github.com/quanteda/quanteda.sentiment/workflows/R-CMD-check/badge.svg)](https://github.com/quanteda/quanteda.sentiment/actions)
+[![Codecov test coverage](https://codecov.io/gh/quanteda/quanteda.sentiment/branch/master/graph/badge.svg)](https://codecov.io/gh/quanteda/quanteda.sentiment?branch=master)
 <!-- badges: end -->
 
 
 ## About
 
-**quanteda.sentiment** extends the **quanteda** package with functionality from the "tidyverse", especially **dplyr**.  
-Note that this is not the same as **tidytext**, which stretches tokens into data.frames.  Instead, tidy functions operate only on document variables, but extends these functions (from **dplyr**) to work on **quanteda** objects as if they were tibbles or data.frames.
+**quanteda.sentiment** extends the **quanteda** package with functions for computing sentiment on text.
 
 ## Installation
 
@@ -39,35 +39,4 @@ devtools::install_github("quanteda/quanteda.sentiment")
 
 ## Examples
 
-Adding a document variable for full president name:
-```{r}
-library("quanteda.sentiment", warn.conflicts = FALSE)
-
-data_corpus_inaugural %>%
-  transmute(fullname = paste(FirstName, President, sep = ", ")) %>%
-  summary(n = 5)
-
-data_corpus_inaugural %>%
-  mutate(fullname = paste(FirstName, President, sep = ", ")) %>%
-  summary(n = 5)
-```
-
-Filtering documents based on years:
-```{r}
-data_corpus_inaugural %>%
-  filter(President == "Roosevelt") %>%
-  summary()
-```
-
-Renaming document variables:
-```{r}
-data_corpus_inaugural %>%
-  rename(LastName = President) %>%
-  select(FirstName, LastName) %>%
-  summary(n = 5)
-```
-
-Glimpse (from **tibble**):
-```{r}
-glimpse(data_corpus_inaugural)
-```
+Coming soon.
