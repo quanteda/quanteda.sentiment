@@ -4,19 +4,23 @@ Version: 0.2
 Authors@R: c( person("Kenneth", "Benoit", email = "kbenoit@lse.ac.uk", role =
     c("aut", "cre", "cph")) )
 Description: Adds functions and dictionaries for computing sentiment using the 'quanteda' package.
-Depends:
-  R (>= 3.4.0),
-  quanteda (>= 2.0.1)
 Imports:
+  quanteda (>= 2.0.1),
+  methods,
   stringi,
   Matrix
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 Suggests: 
     covr,
     spelling,
-    testthat
+    testthat,
+    knitr,
+    rmarkdown
 Roxygen: list(markdown = TRUE)
 Language: en-GB
+VignetteBuilder: knitr
+Depends: 
+    R (>= 2.10)

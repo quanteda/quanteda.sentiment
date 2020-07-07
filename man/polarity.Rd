@@ -34,6 +34,7 @@ A dictionary may have only one set of polarities at a time, but may be
 changed as needed.
 }
 \examples{
+library("quanteda")
 simpledict <- dictionary(list(
     happy = c("happy", "jubilant", "exuberant"),
     sad = c("sad", "morose", "down")

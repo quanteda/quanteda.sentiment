@@ -49,6 +49,7 @@ Additional arguments may be passed via \code{...}, such as \code{smooth} for the
 scale.
 }
 \examples{
+library("quanteda")
 dfmat <- dfm(c("pos pos pos neg pos pos", "neg neg pos pos pos"))
 sent_logit(dfmat)
 sent_abspropdiff(dfmat)

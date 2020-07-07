@@ -147,6 +147,8 @@ test_that("get_polarity_dictionary() works", {
         sad = c("sad", "morose", "down"),
         okay = "just okay"
     ))
+    expect_equal(polarity(dict), NULL)
+    
     polarity(dict) <- list(pos = "happy", neg = "sad", neut = "okay")
 
     expect_identical(

@@ -34,3 +34,4 @@ vignettes/*.pdf
 .Rproj.user
 
 *.Rproj
+inst/doc

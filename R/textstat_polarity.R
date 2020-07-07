@@ -114,6 +114,7 @@ textstat_polarity.dfm <- function(x, dictionary, fun = sent_logit, ...) {
 #' @export
 #'
 #' @examples
+#' library("quanteda")
 #' simpledict <- dictionary(list(
 #'     happy = c("happy", "jubilant", "exuberant"),
 #'     sad = c("sad", "morose", "down")
@@ -160,6 +161,7 @@ polarity.dictionary2 <- function(x) {
     check_that_poles_exist(x, value)
 
     x@meta$object$polarity <- value
+    class(x) <- "dictionary3"
     x
 }
 
@@ -241,6 +243,7 @@ check_that_poles_exist <- function(dictionary, poles) {
 #'   <http://doi.org/10.1111/j.1939-9162.2010.00006.x>
 #' @name sentiment-functions
 #' @examples
+#' library("quanteda")
 #' dfmat <- dfm(c("pos pos pos neg pos pos", "neg neg pos pos pos"))
 #' sent_logit(dfmat)
 #' sent_abspropdiff(dfmat)
