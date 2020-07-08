@@ -122,7 +122,7 @@ txt <- c(doc1 = "This is a fantastic, wonderful example.",
          doc3 = "The good, the bad, and the ugly.")
 toks <- tokens(txt)
 
-rm(data_dictionary_LSD2015)
+data("data_dictionary_LSD2015", package = "quanteda.sentiment")
 polarity(data_dictionary_LSD2015)
 ```
 
