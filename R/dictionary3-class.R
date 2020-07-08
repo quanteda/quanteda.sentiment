@@ -7,7 +7,7 @@ validate_dictionary <- quanteda:::validate_dictionary
 # class definition and class functions --------
 #' dictionary3 class
 #'
-#' This extends the \pkg{quanteda} `dictionary2` class with a version that 
+#' This extends the \pkg{quanteda} `dictionary2` class with a version that
 #' recognizes [valence] and [polarity] meta-data for sentiment analysis.
 #' @rdname dictionary3
 #' @export
@@ -46,37 +46,13 @@ setMethod("print", signature(x = "dictionary3"),
                 poles <- lapply(polarity(x), function(y) paste0("\"", y, "\""))
                 cat(mapply(paste, names(poles), "=",
                            unname(sapply(poles, paste, collapse = ", "))) %>%
-                      paste(collapse = "; "), 
+                      paste(collapse = "; "),
                     "\b.\n")
-              } else if (!is.null(valence(x))) {
+              } 
+              if (!is.null(valence(x))) {
                 cat("Valences set for keys: ")
                 cat(paste(names(valence(x)), collapse = ", "), "\b.\n")
               }
             }
             print_dictionary(x, 1, max_nkey, max_nval, ...)
           })
-
-# # @param object the dictionary to be extracted
-# # @param i index for entries
-# # @rdname dictionary3
-# # @export
-# setMethod("[",
-#           signature = c("dictionary3", i = "index"),
-#           function(x, i) {
-#             x <- as.dictionary(x)
-#             x <- unclass(x)
-#             attrs <- attributes(x)
-#             is_category <- vapply(x[i], function(y) is.list(y), logical(1))
-#             result <- build_dictionary2(x[i][is_category],
-#                                         separator = field_object(attrs, "separator"),
-#                                         valuetype = field_object(attrs, "valuetype"))
-#             meta(result) <- attrs[["meta"]][["user"]]
-#             result@meta$object <- attrs[["meta"]][["object"]]
-#             # subset valence on top-level keys
-#             if (!is.null(valence(result)))
-#               valence(result) <- valence(result)[names(result)]
-#             # subset valence on top-level keys
-#             if (!is.null(polarity(result)))
-#               polarity(result) <- polarity(result)[names(polarity(result)) %in% names(result)]
-#             result
-#           })
