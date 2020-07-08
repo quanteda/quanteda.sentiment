@@ -4,7 +4,12 @@
 \alias{textstat_valence}
 \title{Compute sentiment using a dictionary method}
 \usage{
-textstat_valence(x, dictionary, ...)
+textstat_valence(
+  x,
+  dictionary,
+  normalization = c("dictionary", "all", "none"),
+  ...
+)
 }
 \arguments{
 \item{x}{a character, \link{corpus}, \link{tokens}, or \link{dfm} object containing
@@ -12,6 +17,12 @@ text, tokens, or features whose sentiment will be scored.}
 
 \item{dictionary}{a \pkg{quanteda} \link{dictionary} that has \link{valence} set, in
 the form of numerical valences associated with sentiment}
+
+\item{normalization}{the baseline for normalizing the sentiment counts after
+scoring. Sentiment scores within keys are weighted means of the tokens
+matched to dictionary values, weighted by their valences.  The default
+\code{"dictionary"} is to average over only the valenced words.  \code{"all"}
+averages across all tokens, and \code{"none"} does no normalization.}
 
 \item{...}{not used here}
 }
@@ -33,7 +44,7 @@ corp <- tail(data_corpus_inaugural, n = 5)
 toks <- tokens(corp)
 dfmat <- dfm(toks)
 
-valence(data_dictionary_LSD2015) <- list(positive = 1, neg_negative = 1, 
+valence(data_dictionary_LSD2015) <- list(positive = 1, neg_negative = 1,
                                          negative = -1, neg_positive = -1)
 textstat_valence(toks, dictionary = data_dictionary_LSD2015)
 # slightly different because does not account for phrases
@@ -54,11 +65,11 @@ textstat_valence(toks, dictionary = data_dictionary_afinn)
 # ANEW
 anew <- read.delim(url("https://bit.ly/2zZ44w0"))
 anew <- anew[!duplicated(anew$Word), ] # because some words repeat
-data_dictionary_anew <- dictionary(list(pleasure = anew$Word, 
-                                        arousal = anew$Word, 
+data_dictionary_anew <- dictionary(list(pleasure = anew$Word,
+                                        arousal = anew$Word,
                                         dominance = anew$Word))
-valence(data_dictionary_anew) <- list(pleasure = anew$ValMn, 
-                                      arousal = anew$AroMn, 
+valence(data_dictionary_anew) <- list(pleasure = anew$ValMn,
+                                      arousal = anew$AroMn,
                                       dominance = anew$DomMn)
 textstat_valence(toks, data_dictionary_anew["pleasure"])
 textstat_valence(toks, data_dictionary_anew["arousal"])}

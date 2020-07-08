@@ -8,17 +8,22 @@
 #'   text, tokens, or features whose sentiment will be scored.
 #' @param dictionary a \pkg{quanteda} [dictionary] that has [valence] set, in
 #'   the form of numerical valences associated with sentiment
+#' @param normalization the baseline for normalizing the sentiment counts after
+#'   scoring. Sentiment scores within keys are weighted means of the tokens
+#'   matched to dictionary values, weighted by their valences.  The default
+#'   `"dictionary"` is to average over only the valenced words.  `"all"`
+#'   averages across all tokens, and `"none"` does no normalization.
 #' @param ... not used here
 #' @return a data.frame of sentiment scores
-#' @note 
-#' If the input item is a [dfm], then multi-word values will not be matched 
+#' @note
+#' If the input item is a [dfm], then multi-word values will not be matched
 #' unless the features of the [dfm] have been compounded previously.  The input
 #' objects should not have had dictionaries applied previously.
 #' @export
-#' @references  
+#' @references
 #'   For a discussion of how to aggregate sentiment scores to the document
 #'   level, see:
-#'   
+#'
 #'   Lowe, W., Benoit, K. R., Mikhaylov, S., & Laver, M. (2011).
 #'   Scaling Policy Preferences from Coded Political Texts. _Legislative Studies
 #'   Quarterly_, 36(1), 123–155.
@@ -30,42 +35,44 @@
 #' toks <- tokens(corp)
 #' dfmat <- dfm(toks)
 #'
-#' valence(data_dictionary_LSD2015) <- list(positive = 1, neg_negative = 1, 
+#' valence(data_dictionary_LSD2015) <- list(positive = 1, neg_negative = 1,
 #'                                          negative = -1, neg_positive = -1)
 #' textstat_valence(toks, dictionary = data_dictionary_LSD2015)
 #' # slightly different because does not account for phrases
 #' textstat_valence(dfmat, dictionary = data_dictionary_LSD2015)
-#' 
+#'
 #' # Lowe et al (2011) log(pos / neg)
 #' as.dfm(log(dfmat + 0.5)) %>%
 #'     textstat_valence(dictionary = data_dictionary_LSD2015)
 #'
 #' \dontrun{
-#' 
+#'
 #' # AFINN
 #' afinn <- tidytext::get_sentiments(lexicon = c("afinn"))
 #' data_dictionary_afinn <- dictionary(list(afinn = afinn$word))
 #' valence(data_dictionary_afinn) <- list(afinn = afinn$value)
 #' textstat_valence(toks, dictionary = data_dictionary_afinn)
-#' 
+#'
 #' # ANEW
 #' anew <- read.delim(url("https://bit.ly/2zZ44w0"))
 #' anew <- anew[!duplicated(anew$Word), ] # because some words repeat
-#' data_dictionary_anew <- dictionary(list(pleasure = anew$Word, 
-#'                                         arousal = anew$Word, 
+#' data_dictionary_anew <- dictionary(list(pleasure = anew$Word,
+#'                                         arousal = anew$Word,
 #'                                         dominance = anew$Word))
-#' valence(data_dictionary_anew) <- list(pleasure = anew$ValMn, 
-#'                                       arousal = anew$AroMn, 
+#' valence(data_dictionary_anew) <- list(pleasure = anew$ValMn,
+#'                                       arousal = anew$AroMn,
 #'                                       dominance = anew$DomMn)
 #' textstat_valence(toks, data_dictionary_anew["pleasure"])
 #' textstat_valence(toks, data_dictionary_anew["arousal"])}
 #'
-textstat_valence <- function(x, dictionary, ...) {
+textstat_valence <- function(x, dictionary, 
+                             normalization = c("dictionary", "all", "none"), ...) {
   UseMethod("textstat_valence")
 }
 
 #' @export
-textstat_valence.default <-  function(x, dictionary, ...) {
+textstat_valence.default <-  function(x, dictionary, 
+                                      normalization = c("dictionary", "all", "none"), ...) {
   stop(friendly_class_undefined_message(class(x), "textstat_valence"))
 }
 
@@ -80,44 +87,55 @@ textstat_valence.corpus <- function(x, ...) {
 }
 
 #' @export
-textstat_valence.tokens <- function(x, dictionary, ...) {
+textstat_valence.tokens <- function(x, dictionary, 
+                                    normalization = c("dictionary", "all", "none"), ...) {
+  normalization <- match.arg(normalization)
   valence(dictionary) <- set_valences(dictionary, valence(dictionary))
   numdict <- dictionary(as.list(flip_valence(dictionary)))
   as.tokens(x) %>%
     tokens_lookup(dictionary = numdict, nomatch = "other",
                   nested_scope = "dictionary") %>%
     dfm() %>%
-    aggregate_valence()
+    aggregate_valence(norm = normalization)
 }
 
 #' @export
-textstat_valence.dfm <- function(x, dictionary, ...) {
+textstat_valence.dfm <- function(x, dictionary, 
+                                 normalization = c("dictionary", "all", "none"), ...) {
+  normalization <- match.arg(normalization)
   valence(dictionary) <- set_valences(dictionary, valence(dictionary))
   numdict <- dictionary(as.list(flip_valence(dictionary)))
   as.dfm(x) %>%
     dfm_lookup(dictionary = numdict, nomatch = "other") %>%
-    aggregate_valence()
+    aggregate_valence(norm = normalization)
 }
 
 # internal sentiment calculation functions -----------
 
-# uses Kohei's approach to make the valence values into the keys, and 
+# uses Kohei's approach to make the valence values into the keys, and
 # then groups all values together under that score
 flip_valence <- function(dictionary) {
   v <- valence(dictionary)
   if (is.null(v)) stop("valence not set")
-  
-  structure(unlist(sapply(v, names), use.names = FALSE), 
+
+  structure(unlist(sapply(v, names), use.names = FALSE),
             names = unlist(v, use.names = FALSE))
 }
 
-aggregate_valence <- function(x, normalize = TRUE) {
+aggregate_valence <- function(x, norm = c("dictionary", "all", "none")) {
+  norm <- match.arg(norm)
   other_index <- match("other", colnames(x))
-  other <- as.vector(x[, other_index])
+  if (norm == "dictionary") {
+    denom <- rowSums(x[, -other_index])
+  } else if (norm == "all") {
+    denom <- rowSums(x)
+  } else if (norm == "none") {
+    denom <- 1
+  }
   x <- x[, -other_index]
   result <- data.frame(doc_id = quanteda::docnames(x),
                        sentiment = as.vector(x %*% as.numeric(colnames(x))
-                                             / (if (normalize) rowSums(x) else 1)))
+                                             / denom))
   result$sentiment[is.na(result$sentiment)] <- 0
   result
 }
@@ -130,7 +148,7 @@ aggregate_valence <- function(x, normalize = TRUE) {
 #' sentiment analysis.  Valences consist of numerical values attached to each
 #' dictionary "value".  For dictionaries with a more "polarity"-based approach,
 #' see [textstat_polarity()]
-#' 
+#'
 #' Valences are used only in [textstat_valence()].
 #'
 #' A dictionary may have only one set of valences at a time, but may be
@@ -145,7 +163,7 @@ aggregate_valence <- function(x, normalize = TRUE) {
 #'
 #' @examples
 #' library("quanteda")
-#' 
+#'
 #' # setting valences
 #' dict <- dictionary(list(
 #'     happiness = c("happy", "jubilant", "exuberant", "content"),
@@ -162,9 +180,9 @@ aggregate_valence <- function(x, normalize = TRUE) {
 #' # with named elements - order does not matter
 #' valence(dict) <- list(
 #'     happiness = c(exuberant = 5, jubilant = 4, happy = 3, content = 2)
-#' ) 
-#' valence(dict) 
-#' 
+#' )
+#' valence(dict)
+#'
 valence <- function(x) {
   UseMethod("valence")
 }
@@ -196,7 +214,7 @@ valence.dictionary2 <- function(x) {
   x@meta$object$valence <- set_valences(x, value)
   class(x) <- "dictionary3"
   x
-}    
+}
 
 check_valences <- function(dictionary, valences) {
   if (dictionary_depth(dictionary) > 1)
@@ -213,14 +231,14 @@ check_valences <- function(dictionary, valences) {
       stop("valence value length not equal to number of values for key '",
            key, "'", call. = FALSE)
   }
-}    
+}
 
 set_valences <- function(dictionary, valences) {
   # only use valences for keys in dictionary
   valences <- valences[names(valences) %in% names(dictionary)]
   if (!length(valences))
     stop("no valenced keys found")
-  
+
   for (key in names(valences)) {
     # repeat valences if only a single value is supplied
     if (length(valences[[key]]) == 1)
