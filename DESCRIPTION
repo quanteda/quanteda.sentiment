@@ -21,6 +21,7 @@ Suggests:
     rmarkdown,
     spelling,
     testthat,
+    textdata,
     tidytext
 Roxygen: list(markdown = TRUE)
 Language: en-GB
