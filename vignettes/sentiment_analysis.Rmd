@@ -212,17 +212,18 @@ tokens_lookup(toks, data_dictionary_LSD2015, exclusive = FALSE,
 
 ### Using the AFINN dictionary
 
-We can fetch this dictionary from the **tidytext** package:
+We can build this dictionary from scratch using the source data:
 ```{r}
-afinn <- tidytext::get_sentiments(lexicon = c("afinn"))
-set.seed(42)
-dplyr::sample_n(afinn, 6)
+afinn <- read.delim(system.file("extdata/afinn/AFINN-111.txt", 
+                              package = "quanteda.sentiment"),
+                    header = FALSE, col.names = c("word", "valence"))
+head(afinn)
 ```
 
 To make this into a **quanteda** dictionary:
 ```{r}
 data_dictionary_afinn <- dictionary(list(afinn = afinn$word))
-valence(data_dictionary_afinn) <- list(afinn = afinn$value)
+valence(data_dictionary_afinn) <- list(afinn = afinn$valence)
 data_dictionary_afinn
 ```
 This dictionary has a single key we have called "afinn", with the valences set from the original `afinn` data.frame/tibble.

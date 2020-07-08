@@ -48,9 +48,11 @@
 #' \dontrun{
 #'
 #' # AFINN
-#' afinn <- tidytext::get_sentiments(lexicon = c("afinn"))
+#' afinn <- read.delim(system.file("extdata/afinn/AFINN-111.txt", 
+#'                                 package = "quanteda.sentiment"),
+#'                     header = FALSE, col.names = c("word", "valence"))
 #' data_dictionary_afinn <- dictionary(list(afinn = afinn$word))
-#' valence(data_dictionary_afinn) <- list(afinn = afinn$value)
+#' valence(data_dictionary_afinn) <- list(afinn = afinn$valence)
 #' textstat_valence(toks, dictionary = data_dictionary_afinn)
 #'
 #' # ANEW
