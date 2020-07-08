@@ -69,13 +69,7 @@ tokens_lookup(tokens(txt), dictionary = data_dictionary_LSD2015,
 ## [1] "This"   "NEGATIVE"   "policy"   "will"   "NEG_POSITIVE" "POSITIVE."
 
 # on larger examples - notice that few negations are used
-dfm(data_char_ukimmig2010[1:5], dictionary = data_dictionary_LSD2015)
-
-# compound neg_negative and neg_positive tokens before creating a dfm object
-toks <- tokens_compound(tokens(txt), data_dictionary_LSD2015)
-
-dfm_lookup(dfm(toks), data_dictionary_LSD2015)
-
+dfm(tail(data_corpus_inaugural), dictionary = data_dictionary_LSD2015)
 }
 \references{
 The objectives, development and reliability of the dictionary are discussed
