@@ -61,8 +61,8 @@ valence(dict)
 # with named elements - order does not matter
 valence(dict) <- list(
     happiness = c(exuberant = 5, jubilant = 4, happy = 3, content = 2)
-) 
-valence(dict) 
+)
+valence(dict)
 
 }
 \seealso{

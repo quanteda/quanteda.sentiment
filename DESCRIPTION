@@ -15,10 +15,13 @@ LazyData: true
 RoxygenNote: 7.1.1
 Suggests: 
     covr,
+    dplyr,
+    ggplot2,
+    knitr,
+    rmarkdown,
     spelling,
     testthat,
-    knitr,
-    rmarkdown
+    tidytext
 Roxygen: list(markdown = TRUE)
 Language: en-GB
 VignetteBuilder: knitr

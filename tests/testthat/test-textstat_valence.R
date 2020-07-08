@@ -187,3 +187,60 @@ test_that("overlapping values work as expected", {
     textstat_valence(dfm("Depressed not okay"), dict)$sentiment
   )
 })
+
+test_that("normalization methods work for textstat_valence", {
+  dict <-   dict <- dictionary(list(positive = c("good", "great"),
+                                    negative = c("bad", "awful")))
+  valence(dict) <- list(positive = 1, negative = -1)
+  polarity(dict) <- list(pos = "positive", neg = "negative")
+  
+  txt <- c(d1 = "Good good bad other.",
+           d2 = "Word word other bad!",
+           d3 = "Great awful other £1.")
+  toks <- tokens(txt)
+  
+  # relative proportional difference
+  pol_rpd <- data.frame(doc_id = docnames(toks),
+                        sentiment = c( (2 - 1) / 3,
+                                       (0 - 1) / 1,
+                                       (1 - 1) / 2 ))
+  expect_equivalent(
+    textstat_polarity(toks, dict, sent_relpropdiff),
+    pol_rpd
+  )
+  expect_equivalent(
+    textstat_valence(toks, dict, normalization = "dictionary"),
+    textstat_polarity(toks, dict, sent_relpropdiff)
+  )
+  
+  # absolute proportional difference
+  pol_apd <- data.frame(doc_id = docnames(toks),
+                        sentiment = c( (2 - 1) / 5,
+                                       (0 - 1) / 5,
+                                       (1 - 1) / 6 ))
+  expect_equivalent(
+    textstat_polarity(toks, dict, sent_abspropdiff),
+    pol_apd
+  )
+  expect_equivalent(
+    textstat_valence(toks, dict, normalization = "all"),
+    textstat_polarity(toks, dict, sent_abspropdiff)
+  )
+
+  # logit scale
+  pol_log <- data.frame(doc_id = docnames(toks),
+                        sentiment = c( log(2 + .5) - log(1 + .5),
+                                       log(0 + .5) - log(1 + .5),
+                                       log(1 + .5) - log(1 + .5) ))
+  expect_equivalent(
+    textstat_polarity(toks, dict, sent_logit),
+    pol_log
+  )
+  # dfmat <- dfm(toks) %>%
+  #   dfm_lookup(dict)
+  #   dfm_weight(scheme = "logsmooth", base = exp(1))
+  # expect_equivalent(
+  #   textstat_valence(dfmat, dict),
+  #   textstat_polarity(toks, dict, sent_logit)
+  # )
+})
