@@ -5,7 +5,12 @@
 \alias{data_dictionary_NRC}
 \title{NRC Word-Emotion Association Lexicon}
 \format{
-An object of class \code{dictionary2} of length 10.
+An object of class \code{dictionary3} of length 10.
+}
+\source{
+\url{http://sentiment.nrc.ca/lexicons-for-research}
+
+See also \url{http://saifmohammad.com/WebPages/AccessResource.htm}
 }
 \usage{
 data_dictionary_NRC
@@ -15,16 +20,67 @@ A \pkg{quanteda} \link[quanteda:dictionary]{dictionary} object containing Mohamm
 Charron's (2010, 2013) English version of the NRC Word-Emotion Association
 Lexicon (aka NRC Emotion Lexicon aka EmoLex): association of words with eight
 emotions (anger, fear, anticipation, trust, surprise, sadness, joy, and disgust)
-and two sentiments (negative and positive) manually annotated on Amazon's Mechanical Turk.
-Available in 40 different languages.
+and two sentiments (negative and positive) manually annotated on Amazon's
+Mechanical Turk.
+
+The Sentiment and Emotion Lexicons is a collection of lexicons that was
+entirely created by the experts of the National Research Council of Canada.
+Developed with a wide range of applications, this lexicon collection can be
+used in a multitude of contexts such as sentiment analysis, product
+marketing, consumer behaviour and even political campaign analysis.
+
+The technology uses a list of words that help identify emotions, sentiment,
+as well as analyzing hashtags, emoticons and word-colour associations. The
+lexicons contain entries for English words, and can be used to analyze
+English texts.
 }
+\note{
+Technical and research-related questions can be addressed to Saif M.
+Mohammad (Senior Research Scientist at NRC):
+\code{Saif.Mohammad@nrc-cnrc.gc.ca}.
+}
+\section{License and Terms of Use}{
+
+Free for research purposes.
+
+For questions about the commercial license, email Pierre Charron (Client
+Relationship Leader at NRC): \code{Pierre.Charron@nrc-cnrc.gc.ca}.
+
+Terms of Use:
+\itemize{
+\item Cite the papers associated with the lexicons in your research papers and
+articles that make use of them. (The papers associated with each lexicon
+are listed below, and also in the READMEs for individual lexicons.)
+\item In news articles and online posts on work using these lexicons, cite the
+appropriate lexicons. For example: "This application/product/tool makes
+use of the \verb{resource name}, created by \code{author(s)} at the National
+Research Council Canada." (The creators of each lexicon are listed below.
+Also, if you send us an email, we will be thrilled to know about how you
+have used the lexicon.) If possible hyperlink to this page:
+\url{http://saifmohammad.com/WebPages/lexicons.html}.
+\item If you use a lexicon in a product or application, then acknowledge this in
+the 'About' page and other relevant documentation of the application by
+stating the name of the resource, the authors, and NRC. For example: "This
+application/product/tool makes use of the \verb{resource name}, created by
+\code{author(s)} at the National Research Council Canada." (The creators of
+each lexicon are listed below. Also, if you send us an email, we will be
+thrilled to know about how you have used the lexicon.) If possible
+hyperlink to this page: \url{http://saifmohammad.com/WebPages/lexicons.html}.
+\item Do not redistribute the data. Direct interested parties to this page:
+\url{http://saifmohammad.com/WebPages/AccessResource.htm}.
+\item National Research Council Canada (NRC) disclaims any responsibility for
+the use of the lexicons listed here and does not provide technical
+support. However, the contact listed above will be happy to respond to
+queries and clarifications.
+}
+}
+
 \references{
-Mohammad, S. & Turney, P. (2013). \href{https://arxiv.org/abs/1308.6297}{Crowdsourcing a Word-Emotion Association Lexicon}. \emph{Computational Intelligence}, 29(3), 436--465.
+Mohammad, S. & Turney, P. (2013). \href{https://arxiv.org/abs/1308.6297}{Crowdsourcing a Word-Emotion Association Lexicon}. \emph{Computational Intelligence},
+29(3), 436--465.
 
-Mohammad, S. & Turney, P. (2010). \href{https://dl.acm.org/citation.cfm?id=1860635}{Emotions Evoked by Common Words and Phrases: Using Mechanical Turk to Create an Emotion Lexicon}. In \emph{Proceedings of the NAACL-HLT 2010 Workshop on Computational
-Approaches to Analysis and Generation of Emotion in Text}, June 2010, LA,
-California.
-
-NRC webpage: \url{http://saifmohammad.com/WebPages/AccessResource.htm}
+Mohammad, S. & Turney, P. (2010). \href{https://dl.acm.org/citation.cfm?id=1860635}{Emotions Evoked by Common Words and Phrases: Using Mechanical Turk to Create an Emotion Lexicon}. In \emph{Proceedings of
+the NAACL-HLT 2010 Workshop on Computational Approaches to Analysis and
+Generation of Emotion in Text}, June 2010, LA, California.
 }
 \keyword{data}

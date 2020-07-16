@@ -5,7 +5,7 @@
 \alias{data_dictionary_sentiws}
 \title{SentimentWortschatz (SentiWS)}
 \format{
-An object of class \code{dictionary2} of length 2.
+An object of class \code{dictionary3} of length 2.
 }
 \source{
 \url{http://wortschatz.uni-leipzig.de/en/download/}
@@ -26,17 +26,8 @@ interval of -1 to 1. Note that the version implemented in
 (weight > 0) and negative (weight < 0) features.
 }
 \references{
-Remus, R., Quasthoff U., and Heyer, G. (2010).
-[SentiWS
-\itemize{
-\item a Publicly Available German-language Resource for Sentiment Analysis](http://www.lrec-conf.org/proceedings/lrec2010/pdf/490_Paper.pdf).
-In \emph{Proceedings of the 7th International Language Ressources and
-Evaluation (LREC'10)}, 1168--1171.
-}
-
-[SentiWS
-\itemize{
-\item a Publicly Available German-language Resource for Sentiment Analysis]: R:SentiWS\%0A\%20\%20-\%20a\%20Publicly\%20Available\%20German-language\%20Resource\%20for\%20Sentiment\%20Analysis
-}
+Remus, R., Quasthoff U., and Heyer, G. (2010). \href{http://www.lrec-conf.org/proceedings/lrec2010/pdf/490_Paper.pdf}{SentiWS: a Publicly Available German-language Resource for Sentiment Analysis}.
+In \emph{Proceedings of the 7th International Language Ressources and Evaluation
+(LREC'10)}, 1168--1171.
 }
 \keyword{data}

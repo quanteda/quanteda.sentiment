@@ -2,7 +2,7 @@
 % Please edit documentation in R/textstat_valence.R
 \name{textstat_valence}
 \alias{textstat_valence}
-\title{Compute sentiment using a dictionary method}
+\title{Compute sentiment from word valences}
 \usage{
 textstat_valence(
   x,
@@ -40,20 +40,6 @@ objects should not have had dictionaries applied previously.
 }
 \examples{
 library("quanteda")
-corp <- tail(data_corpus_inaugural, n = 5)
-toks <- tokens(corp)
-dfmat <- dfm(toks)
-
-valence(data_dictionary_LSD2015) <- list(positive = 1, neg_negative = 1,
-                                         negative = -1, neg_positive = -1)
-textstat_valence(toks, dictionary = data_dictionary_LSD2015)
-# slightly different because does not account for phrases
-textstat_valence(dfmat, dictionary = data_dictionary_LSD2015)
-
-# Lowe et al (2011) log(pos / neg)
-as.dfm(log(dfmat + 0.5)) \%>\%
-    textstat_valence(dictionary = data_dictionary_LSD2015)
-
 \dontrun{
 
 # AFINN

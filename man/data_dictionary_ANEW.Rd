@@ -3,7 +3,7 @@
 \docType{data}
 \name{data_dictionary_ANEW}
 \alias{data_dictionary_ANEW}
-\title{Affective Norms for English Words}
+\title{Affective Norms for English Words (ANEW)}
 \format{
 An object of class \code{dictionary3} of length 3.
 }
@@ -11,6 +11,22 @@ An object of class \code{dictionary3} of length 3.
 data_dictionary_ANEW
 }
 \description{
-TBC
+A quanteda dictionary object containing the ANEW, or Affective Norms for
+English Words (Bradley and Lang 2017) valenced lexicon.  The ANEW provides a
+lexicon of 2,471 distinct fixed word matches that are associated with three
+valenced categories: pleasure, arousal, and dominance.
 }
+\section{License}{
+
+ANEW Statement of Use
+
+In accepting the ANEW materials, I agree not to make the ANEW available to
+the media (television, magazines, etc.) or to place them on any internet or
+computer-accessible websites. I also agree not to publish the ANEW in any
+print format – including JOURNALS, newspapers, etc. I also agree that I will
+not provide the ANEW materials to profit making companies or organizations
+and I agree not to distribute my username and password to unauthorized
+parties.
+}
+
 \keyword{data}

@@ -2,7 +2,7 @@
 % Please edit documentation in R/textstat_polarity.R
 \name{textstat_polarity}
 \alias{textstat_polarity}
-\title{Compute sentiment using a dictionary method}
+\title{Compute sentiment from key polarities}
 \usage{
 textstat_polarity(x, dictionary, fun = sent_logit, ...)
 }

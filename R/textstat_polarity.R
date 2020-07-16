@@ -1,6 +1,6 @@
 # textstat_polarity ----------------
 
-#' Compute sentiment using a dictionary method
+#' Compute sentiment from key polarities
 #'
 #' Compute sentiment scores using a polarity approach, based on assigned
 #' categories (types or features) of positive, negative, and neutral sentiment.

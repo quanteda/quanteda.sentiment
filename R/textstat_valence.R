@@ -1,6 +1,6 @@
 # textstat_valence ----------------
 
-#' Compute sentiment using a dictionary method
+#' Compute sentiment from word valences
 #'
 #' Compute sentiment scores from tokens or document-feature matrices, based on
 #' the valences of dictionary keys and values.
@@ -31,20 +31,6 @@
 #' @seealso [valence()]
 #' @examples
 #' library("quanteda")
-#' corp <- tail(data_corpus_inaugural, n = 5)
-#' toks <- tokens(corp)
-#' dfmat <- dfm(toks)
-#'
-#' valence(data_dictionary_LSD2015) <- list(positive = 1, neg_negative = 1,
-#'                                          negative = -1, neg_positive = -1)
-#' textstat_valence(toks, dictionary = data_dictionary_LSD2015)
-#' # slightly different because does not account for phrases
-#' textstat_valence(dfmat, dictionary = data_dictionary_LSD2015)
-#'
-#' # Lowe et al (2011) log(pos / neg)
-#' as.dfm(log(dfmat + 0.5)) %>%
-#'     textstat_valence(dictionary = data_dictionary_LSD2015)
-#'
 #' \dontrun{
 #'
 #' # AFINN

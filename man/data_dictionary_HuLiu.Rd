@@ -5,7 +5,7 @@
 \alias{data_dictionary_HuLiu}
 \title{Positive and negative words from Hu and Liu (2004)}
 \format{
-An object of class \code{dictionary2} of length 2.
+An object of class \code{dictionary3} of length 2.
 }
 \source{
 \url{http://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html}
@@ -14,17 +14,21 @@ An object of class \code{dictionary2} of length 2.
 data_dictionary_HuLiu
 }
 \description{
-A \pkg{quanteda} \link[quanteda:dictionary]{dictionary} object containing 2,006 positive
-and 4,783 negative words from Hu and Liu (2004, 2005).
+A \pkg{quanteda} \link[quanteda:dictionary]{dictionary} object containing 2,006
+positive and 4,783 negative words from Hu and Liu (2004, 2005).
 }
-\references{
-Hu, M. & Liu, B. (2004). \href{https://www.cs.uic.edu/~liub/publications/kdd04-revSummary.pdf}{Mining and Summarizing Customer Reviews.}
-In \emph{Proceedings of the ACM SIGKDD International Conference on Knowledge
-Discovery and Data Mining (KDD-2004), Aug 22--25, 2004, Seattle,
-Washington, USA}.
+\section{License}{
 
-Liu, M., Hu, M., & Cheng, J. (2005). \href{https://www.cs.uic.edu/~liub/publications/www05-p536.pdf}{Opinion Observer: Analyzing and Comparing Opinions on the Web.} In
-\emph{Proceedings of the 14th International World Wide Web conference
-(WWW-2005), May 10--14, 2005, Chiba, Japan}.
+Unknown.
+}
+
+\references{
+Hu, M. & Liu, B. (2004). \href{https://www.cs.uic.edu/~liub/publications/kdd04-revSummary.pdf}{Mining and Summarizing Customer Reviews}. In
+Proceedings of the ACM SIGKDD International Conference on Knowledge Discovery
+and Data Mining (KDD-2004), Aug 22--25, 2004, Seattle, Washington, USA.
+
+Liu, M., Hu, M., & Cheng, J. (2005). \href{https://www.cs.uic.edu/~liub/publications/www05-p536.pdf}{Opinion Observer: Analyzing and Comparing Opinions on the Web}. In
+Proceedings of the 14th International World Wide Web conference (WWW-2005),
+May 10--14, 2005, Chiba, Japan.
 }
 \keyword{data}

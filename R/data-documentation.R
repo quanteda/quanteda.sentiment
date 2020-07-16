@@ -75,42 +75,93 @@
 
 #' NRC Word-Emotion Association Lexicon
 #'
+#' @description
 #' A \pkg{quanteda} [dictionary][quanteda::dictionary] object containing Mohammad and
 #' Charron's (2010, 2013) English version of the NRC Word-Emotion Association
 #' Lexicon (aka NRC Emotion Lexicon aka EmoLex): association of words with eight
 #' emotions (anger, fear, anticipation, trust, surprise, sadness, joy, and disgust)
-#' and two sentiments (negative and positive) manually annotated on Amazon's Mechanical Turk.
-#' Available in 40 different languages.
+#' and two sentiments (negative and positive) manually annotated on Amazon's 
+#' Mechanical Turk.
+#' 
+#' @description
+#' The Sentiment and Emotion Lexicons is a collection of lexicons that was
+#' entirely created by the experts of the National Research Council of Canada.
+#' Developed with a wide range of applications, this lexicon collection can be
+#' used in a multitude of contexts such as sentiment analysis, product
+#' marketing, consumer behaviour and even political campaign analysis.
+#' 
+#' @description
+#' The technology uses a list of words that help identify emotions, sentiment,
+#' as well as analyzing hashtags, emoticons and word-colour associations. The
+#' lexicons contain entries for English words, and can be used to analyze
+#' English texts.
 #' @references
-#'   Mohammad, S. & Turney, P. (2013). [Crowdsourcing 
-#'   a Word-Emotion Association Lexicon](https://arxiv.org/abs/1308.6297). *Computational Intelligence*, 29(3), 436--465.
+#'   Mohammad, S. & Turney, P. (2013). [Crowdsourcing a Word-Emotion Association
+#'   Lexicon](https://arxiv.org/abs/1308.6297). *Computational Intelligence*,
+#'   29(3), 436--465.
 #'
-#'   Mohammad, S. & Turney, P. (2010). [Emotions 
-#'   Evoked by Common Words and Phrases: Using Mechanical Turk to Create an 
-#'   Emotion Lexicon](https://dl.acm.org/citation.cfm?id=1860635). In *Proceedings of the NAACL-HLT 2010 Workshop on Computational
-#'   Approaches to Analysis and Generation of Emotion in Text*, June 2010, LA,
-#'   California.
+#'   Mohammad, S. & Turney, P. (2010). [Emotions Evoked by Common Words and
+#'   Phrases: Using Mechanical Turk to Create an Emotion
+#'   Lexicon](https://dl.acm.org/citation.cfm?id=1860635). In *Proceedings of
+#'   the NAACL-HLT 2010 Workshop on Computational Approaches to Analysis and
+#'   Generation of Emotion in Text*, June 2010, LA, California.
+#' @source <http://sentiment.nrc.ca/lexicons-for-research>
 #'
-#'   NRC webpage: <http://saifmohammad.com/WebPages/AccessResource.htm>
+#' See also <http://saifmohammad.com/WebPages/AccessResource.htm>
+#' @section License and Terms of Use:
+#' Free for research purposes.
+#' 
+#' For questions about the commercial license, email Pierre Charron (Client
+#' Relationship Leader at NRC): `Pierre.Charron@nrc-cnrc.gc.ca`.
+#' 
+#' Terms of Use:
+#' *  Cite the papers associated with the lexicons in your research papers and
+#'    articles that make use of them. (The papers associated with each lexicon
+#'    are listed below, and also in the READMEs for individual lexicons.)
+#' *  In news articles and online posts on work using these lexicons, cite the 
+#'    appropriate lexicons. For example: "This application/product/tool makes 
+#'    use of the `resource name`, created by `author(s)` at the National 
+#'    Research Council Canada." (The creators of each lexicon are listed below. 
+#'    Also, if you send us an email, we will be thrilled to know about how you 
+#'    have used the lexicon.) If possible hyperlink to this page: 
+#'    <http://saifmohammad.com/WebPages/lexicons.html>.
+#' *  If you use a lexicon in a product or application, then acknowledge this in
+#'    the 'About' page and other relevant documentation of the application by
+#'    stating the name of the resource, the authors, and NRC. For example: "This
+#'    application/product/tool makes use of the `resource name`, created by
+#'    `author(s)` at the National Research Council Canada." (The creators of 
+#'    each lexicon are listed below. Also, if you send us an email, we will be 
+#'    thrilled to know about how you have used the lexicon.) If possible 
+#'    hyperlink to this page: <http://saifmohammad.com/WebPages/lexicons.html>.
+#' *  Do not redistribute the data. Direct interested parties to this page:
+#'    <http://saifmohammad.com/WebPages/AccessResource.htm>.
+#' *  National Research Council Canada (NRC) disclaims any responsibility for 
+#'    the use of the lexicons listed here and does not provide technical 
+#'    support. However, the contact listed above will be happy to respond to 
+#'    queries and clarifications.
+#' @note Technical and research-related questions can be addressed to Saif M.
+#'   Mohammad (Senior Research Scientist at NRC):
+#'   `Saif.Mohammad@nrc-cnrc.gc.ca`.
 #' @keywords data
 "data_dictionary_NRC"
 
 #' Positive and negative words from Hu and Liu (2004)
 #'
-#' A \pkg{quanteda} [dictionary][quanteda::dictionary] object containing 2,006 positive
-#' and 4,783 negative words from Hu and Liu (2004, 2005).
-#' @references
-#'   Hu, M. & Liu, B. (2004). [Mining and Summarizing Customer
-#'   Reviews.](https://www.cs.uic.edu/~liub/publications/kdd04-revSummary.pdf)
-#'   In *Proceedings of the ACM SIGKDD International Conference on Knowledge
-#'   Discovery and Data Mining (KDD-2004), Aug 22--25, 2004, Seattle,
-#'   Washington, USA*.
-#'
-#'   Liu, M., Hu, M., & Cheng, J. (2005). [Opinion Observer: Analyzing and
-#'   Comparing Opinions on the
-#'   Web.](https://www.cs.uic.edu/~liub/publications/www05-p536.pdf) In
-#'   *Proceedings of the 14th International World Wide Web conference
-#'   (WWW-2005), May 10--14, 2005, Chiba, Japan*.
+#' A \pkg{quanteda} [dictionary][quanteda::dictionary] object containing 2,006
+#' positive and 4,783 negative words from Hu and Liu (2004, 2005).
+#' @references 
+#' Hu, M. & Liu, B. (2004). [Mining and Summarizing Customer
+#' Reviews](https://www.cs.uic.edu/~liub/publications/kdd04-revSummary.pdf). In
+#' Proceedings of the ACM SIGKDD International Conference on Knowledge Discovery
+#' and Data Mining (KDD-2004), Aug 22--25, 2004, Seattle, Washington, USA.
+#' 
+#' Liu, M., Hu, M., & Cheng, J. (2005). [Opinion Observer: Analyzing and
+#' Comparing Opinions on the
+#' Web](https://www.cs.uic.edu/~liub/publications/www05-p536.pdf). In
+#' Proceedings of the 14th International World Wide Web conference (WWW-2005),
+#' May 10--14, 2005, Chiba, Japan.
+#' @section License:
+#' Unknown.
 #' @source <http://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html>
 #' @keywords data
 "data_dictionary_HuLiu"
@@ -148,11 +199,11 @@
 #' (weight > 0) and negative (weight < 0) features.
 #' @source <http://wortschatz.uni-leipzig.de/en/download/>
 #' @references
-#'   Remus, R., Quasthoff U., and Heyer, G. (2010).
-#'   [SentiWS
-#'   - a Publicly Available German-language Resource for Sentiment Analysis](http://www.lrec-conf.org/proceedings/lrec2010/pdf/490_Paper.pdf).
-#'   In *Proceedings of the 7th International Language Ressources and
-#'   Evaluation (LREC'10)*, 1168--1171.
+#'   Remus, R., Quasthoff U., and Heyer, G. (2010). [SentiWS: a Publicly
+#'   Available German-language Resource for Sentiment
+#'   Analysis](http://www.lrec-conf.org/proceedings/lrec2010/pdf/490_Paper.pdf).
+#'   In _Proceedings of the 7th International Language Ressources and Evaluation
+#'   (LREC'10)_, 1168--1171.
 #'
 #' @keywords data
 "data_dictionary_sentiws"
@@ -177,9 +228,22 @@
 #' @keywords data
 "data_dictionary_AFINN"
 
-#' Affective Norms for English Words
+#' Affective Norms for English Words (ANEW)
 #'
-#' TBC
+#' A quanteda dictionary object containing the ANEW, or Affective Norms for
+#' English Words (Bradley and Lang 2017) valenced lexicon.  The ANEW provides a
+#' lexicon of 2,471 distinct fixed word matches that are associated with three
+#' valenced categories: pleasure, arousal, and dominance.
+#' @section License:
+#' ANEW Statement of Use
+#' 
+#' In accepting the ANEW materials, I agree not to make the ANEW available to
+#' the media (television, magazines, etc.) or to place them on any internet or
+#' computer-accessible websites. I also agree not to publish the ANEW in any
+#' print format – including JOURNALS, newspapers, etc. I also agree that I will
+#' not provide the ANEW materials to profit making companies or organizations
+#' and I agree not to distribute my username and password to unauthorized
+#' parties.
 #' @keywords data
 "data_dictionary_ANEW"
 
