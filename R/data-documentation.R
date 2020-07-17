@@ -149,6 +149,10 @@
 #'
 #' A \pkg{quanteda} [dictionary][quanteda::dictionary] object containing 2,006
 #' positive and 4,783 negative words from Hu and Liu (2004, 2005).
+#' @format 
+#' A [dictionary] of fixed word patterns with two keys:
+#' * `positive`: 2,006 words with positive polarity
+#' * `negative`: 4,783 words with negative polarity
 #' @references 
 #' Hu, M. & Liu, B. (2004). [Mining and Summarizing Customer
 #' Reviews](https://www.cs.uic.edu/~liub/publications/kdd04-revSummary.pdf). In
@@ -234,6 +238,10 @@
 #' English Words (Bradley and Lang 2017) valenced lexicon.  The ANEW provides a
 #' lexicon of 2,471 distinct fixed word matches that are associated with three
 #' valenced categories: pleasure, arousal, and dominance.
+#' @format 
+#' A [dictionary] with three valenced keys: `pleasure`, `arousal`, and
+#' `dominance`, each with valences from 1 to 9 and containing the same 2,471
+#' fixed word values.
 #' @section License:
 #' ANEW Statement of Use
 #' 

@@ -5,7 +5,9 @@
 \alias{data_dictionary_ANEW}
 \title{Affective Norms for English Words (ANEW)}
 \format{
-An object of class \code{dictionary3} of length 3.
+A \link{dictionary} with three valenced keys: \code{pleasure}, \code{arousal}, and
+\code{dominance}, each with valences from 1 to 9 and containing the same 2,471
+fixed word values.
 }
 \usage{
 data_dictionary_ANEW
