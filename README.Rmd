@@ -23,6 +23,15 @@ library("badger")
 [![Codecov test coverage](https://codecov.io/gh/quanteda/quanteda.sentiment/branch/master/graph/badge.svg)](https://codecov.io/gh/quanteda/quanteda.sentiment?branch=master)
 <!-- badges: end -->
 
+## Installation
+
+You can install **quanteda.sentiment** from GitHub with:
+
+```{r eval = FALSE}
+devtools::install_github("quanteda/quanteda.sentiment")
+```
+
+The package is not yet on CRAN.
 
 ## About
 
@@ -30,16 +39,16 @@ library("badger")
 
 The approach to sentiment in this package approaches sentiment computation in two ways, depending on whether sentiment is considered a key attribute, in which case the keys are assigned a _polarity_ such as _positive_ or _negative_, or whether individual values are assigned a _valence_, in the form of some continuous value indicating a degree of sentiment.  Each is implemented in a separate function:
 
-*  `textstat_polarity()`, for computing a sentiment based on keys set as "poles" of positive versus negative sentiment.  Setting polarity is dones through the `polarity()<-` function and can be set for any dictionary, for any keys.  "Sentiment" here can be broadly construed as any contrasting pair of poles, such as "Democrat" versus "Republican", for instance.  More than one key can be associated with the same pole.
+*  **Polarity-based sentiment.**  This is implemented via `textstat_polarity()`, for computing a sentiment based on keys set as "poles" of positive versus negative sentiment.  Setting polarity is dones through the `polarity()<-` function and can be set for any dictionary, for any keys.  "Sentiment" here can be broadly construed as any contrasting pair of poles, such as "Democrat" versus "Republican", for instance.  More than one key can be associated with the same pole.
 
     Polar values are converted into sentiment scores using a flexible function, such as $\mathrm{log}(pos / neg)$, or $(pos - neg)/(pos + neg)$.  **quanteda.sentiment** offers three built-in functions, but the user can supply any function for combining polarities.
 
-*  `textstat_valence()`, for computing sentiment as the average valence of a document's words, based on a dictionary whose values have numeric valence scores.  Valence scores are set using the `valence()<-` function.  Each key in a dictionary may have values with difference valences.
+* **Valence-based sentiment.**  This is implemented via `textstat_valence()`, for computing sentiment as the average valence of a document's words, based on a dictionary whose values have numeric valence scores.  Valence scores are set using the `valence()<-` function.  Each key in a dictionary may have values with difference valences.
 
 The package comes with the following built-in dictionaries:
 
 | Name                             | Description                                                   | Polarity | Valence |
-|----------------------------------|---------------------------------------------------------------|:--------:|:-------:|
+|:---------------------------------|:--------------------------------------------------------------|:--------:|:-------:|
 | data_dictionary_AFINN            | Nielsen's (2011) 'new ANEW' valenced word list                |          |    ✔️    |
 | data_dictionary_ANEW             | Affective Norms for English Words (ANEW)                      |          |    ✔️    |
 | data_dictionary_geninqposneg     | Augmented General Inquirer _Positiv_ and _Negativ_ dictionary |     ✔️    |         |
@@ -50,15 +59,6 @@ The package comes with the following built-in dictionaries:
 | data_dictionary_Rauh             | Rauh's German Political Sentiment Dictionary                  |     ✔️    |         |
 | data_dictionary_sentiws          | SentimentWortschatz (SentiWS)                                 |     ✔    |    ✔    |
 
-## Installation
-
-You can install **quanteda.sentiment** from GitHub with:
-
-```{r eval = FALSE}
-devtools::install_github("quanteda/quanteda.sentiment")
-```
-
-The package is not yet on CRAN.
 
 ## Examples
 
@@ -85,7 +85,7 @@ lapply(valence(data_dictionary_ANEW), head, 8)
 tail(data_corpus_inaugural) %>%
   textstat_valence(dictionary = data_dictionary_ANEW["pleasure"])
 ```
-We can compare these results:
+We can compare two measures computed in different ways (although they are not comparable, really, since they are different lexicons):
 ```{r}
 # ensure we have this package's version of the dictionary
 data("data_dictionary_LSD2015", package = "quanteda.sentiment")
@@ -102,6 +102,7 @@ ggplot(data.frame(sent_pol, valence = sent_val$sentiment),
        aes(x = polarity, y = valence)) +
   geom_point()
 ```
+
 Good enough for government work!
 
 ## Where to learn more

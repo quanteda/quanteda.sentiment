@@ -13,6 +13,16 @@ status](https://github.com/quanteda/quanteda.sentiment/workflows/R-CMD-check/bad
 coverage](https://codecov.io/gh/quanteda/quanteda.sentiment/branch/master/graph/badge.svg)](https://codecov.io/gh/quanteda/quanteda.sentiment?branch=master)
 <!-- badges: end -->
 
+## Installation
+
+You can install **quanteda.sentiment** from GitHub with:
+
+``` r
+devtools::install_github("quanteda/quanteda.sentiment")
+```
+
+The package is not yet on CRAN.
+
 ## About
 
 **quanteda.sentiment** extends the **quanteda** package with functions
@@ -29,7 +39,8 @@ key attribute, in which case the keys are assigned a *polarity* such as
 *valence*, in the form of some continuous value indicating a degree of
 sentiment. Each is implemented in a separate function:
 
-  - `textstat_polarity()`, for computing a sentiment based on keys set
+  - **Polarity-based sentiment.** This is implemented via
+    `textstat_polarity()`, for computing a sentiment based on keys set
     as “poles” of positive versus negative sentiment. Setting polarity
     is dones through the `polarity()<-` function and can be set for any
     dictionary, for any keys. “Sentiment” here can be broadly construed
@@ -43,7 +54,8 @@ sentiment. Each is implemented in a separate function:
     built-in functions, but the user can supply any function for
     combining polarities.
 
-  - `textstat_valence()`, for computing sentiment as the average valence
+  - **Valence-based sentiment.** This is implemented via
+    `textstat_valence()`, for computing sentiment as the average valence
     of a document’s words, based on a dictionary whose values have
     numeric valence scores. Valence scores are set using the
     `valence()<-` function. Each key in a dictionary may have values
@@ -52,7 +64,7 @@ sentiment. Each is implemented in a separate function:
 The package comes with the following built-in dictionaries:
 
 | Name                               | Description                                                   | Polarity | Valence |
-| ---------------------------------- | ------------------------------------------------------------- | :------: | :-----: |
+| :--------------------------------- | :------------------------------------------------------------ | :------: | :-----: |
 | data\_dictionary\_AFINN            | Nielsen’s (2011) ‘new ANEW’ valenced word list                |          |   ✔️    |
 | data\_dictionary\_ANEW             | Affective Norms for English Words (ANEW)                      |          |   ✔️    |
 | data\_dictionary\_geninqposneg     | Augmented General Inquirer *Positiv* and *Negativ* dictionary |    ✔️    |         |
@@ -62,16 +74,6 @@ The package comes with the following built-in dictionaries:
 | data\_dictionary\_NRC              | NRC Word-Emotion Association Lexicon                          |    ✔️    |         |
 | data\_dictionary\_Rauh             | Rauh’s German Political Sentiment Dictionary                  |    ✔️    |         |
 | data\_dictionary\_sentiws          | SentimentWortschatz (SentiWS)                                 |    ✔     |    ✔    |
-
-## Installation
-
-You can install **quanteda.sentiment** from GitHub with:
-
-``` r
-devtools::install_github("quanteda/quanteda.sentiment")
-```
-
-The package is not yet on CRAN.
 
 ## Examples
 
@@ -150,7 +152,8 @@ tail(data_corpus_inaugural) %>%
 ## 6   2017-Trump  6.223944
 ```
 
-We can compare these results:
+We can compare two measures computed in different ways (although they
+are not comparable, really, since they are different lexicons):
 
 ``` r
 # ensure we have this package's version of the dictionary
@@ -169,8 +172,9 @@ ggplot(data.frame(sent_pol, valence = sent_val$sentiment),
   geom_point()
 ```
 
-![](man/images/unnamed-chunk-6-1.png)<!-- --> Good enough for government
-work\!
+![](man/images/unnamed-chunk-6-1.png)<!-- -->
+
+Good enough for government work\!
 
 ## Where to learn more
 
