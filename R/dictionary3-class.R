@@ -54,5 +54,5 @@ setMethod("print", signature(x = "dictionary3"),
                 cat(paste(names(valence(x)), collapse = ", "), "\b.\n")
               }
             }
-            print_dictionary(x, 1, max_nkey, max_nval, ...)
+            invisible(print_dictionary(x, 1, max_nkey, max_nval, ...))
           })
