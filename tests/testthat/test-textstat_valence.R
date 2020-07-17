@@ -227,6 +227,12 @@ test_that("normalization methods work for textstat_valence", {
     textstat_polarity(toks, dict, sent_abspropdiff)
   )
 
+  # no normalization
+  expect_equivalent(
+    textstat_valence(toks, dict, normalization = "none"),
+    data.frame(doc_id = docnames(toks), sentiment = c(1, -1, 0))
+  )
+  
   # logit scale
   pol_log <- data.frame(doc_id = docnames(toks),
                         sentiment = c( log(2 + .5) - log(1 + .5),
@@ -243,4 +249,12 @@ test_that("normalization methods work for textstat_valence", {
   #   textstat_valence(dfmat, dict),
   #   textstat_polarity(toks, dict, sent_logit)
   # )
+})
+
+test_that("worker functions work", {
+  dict <- dictionary(list(positive = "good", negative = "bad"))
+  expect_error(
+    quanteda.sentiment:::flip_valence(dict),
+    "valence not set"
+  )
 })
