@@ -47,11 +47,11 @@ setMethod("print", signature(x = "dictionary3"),
                 cat(mapply(paste, names(poles), "=",
                            unname(sapply(poles, paste, collapse = ", "))) %>%
                       paste(collapse = "; "),
-                    "\b.\n")
+                    "\n")
               } 
               if (!is.null(valence(x))) {
                 cat("Valences set for keys: ")
-                cat(paste(names(valence(x)), collapse = ", "), "\b.\n")
+                cat(paste(names(valence(x)), collapse = ", "), "\n")
               }
             }
             invisible(print_dictionary(x, 1, max_nkey, max_nval, ...))

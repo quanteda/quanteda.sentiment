@@ -65,37 +65,29 @@ The package comes with the following built-in dictionaries:
 
 | Name                               | Description                                                   | Polarity | Valence |
 | :--------------------------------- | :------------------------------------------------------------ | :------: | :-----: |
-| data\_dictionary\_AFINN            | Nielsen’s (2011) ‘new ANEW’ valenced word list                |          |   ✔️    |
-| data\_dictionary\_ANEW             | Affective Norms for English Words (ANEW)                      |          |   ✔️    |
-| data\_dictionary\_geninqposneg     | Augmented General Inquirer *Positiv* and *Negativ* dictionary |    ✔️    |         |
-| data\_dictionary\_HuLiu            | Positive and negative words from Hu and Liu (2004)            |    ✔️    |         |
-| data\_dictionary\_LoughranMcDonald | Loughran and McDonald Sentiment Word Lists                    |    ✔️    |         |
-| data\_dictionary\_LSD2015          | Lexicoder Sentiment Dictionary (2015)                         |    ✔️    |         |
-| data\_dictionary\_NRC              | NRC Word-Emotion Association Lexicon                          |    ✔️    |         |
-| data\_dictionary\_Rauh             | Rauh’s German Political Sentiment Dictionary                  |    ✔️    |         |
+| data\_dictionary\_AFINN            | Nielsen’s (2011) ‘new ANEW’ valenced word list                |          |    ✔    |
+| data\_dictionary\_ANEW             | Affective Norms for English Words (ANEW)                      |          |    ✔    |
+| data\_dictionary\_geninqposneg     | Augmented General Inquirer *Positiv* and *Negativ* dictionary |    ✔     |         |
+| data\_dictionary\_HuLiu            | Positive and negative words from Hu and Liu (2004)            |    ✔     |         |
+| data\_dictionary\_LoughranMcDonald | Loughran and McDonald Sentiment Word Lists                    |    ✔     |         |
+| data\_dictionary\_LSD2015          | Lexicoder Sentiment Dictionary (2015)                         |    ✔     |         |
+| data\_dictionary\_NRC              | NRC Word-Emotion Association Lexicon                          |    ✔     |         |
+| data\_dictionary\_Rauh             | Rauh’s German Political Sentiment Dictionary                  |    ✔     |         |
 | data\_dictionary\_sentiws          | SentimentWortschatz (SentiWS)                                 |    ✔     |    ✔    |
 
 ## Examples
 
-For a polarity dictionary, we can use the postive and negative key
+For a polarity dictionary, we can use the positive and negative key
 categories from the General Inquirer dictionary:
 
 ``` r
-library("quanteda", warn.conflicts = FALSE, quietly = TRUE)
-## Package version: 2.1.0.9000
-## Parallel computing: 2 of 12 threads used.
-## See https://quanteda.io for tutorials and examples.
 library("quanteda.sentiment")
-## 
-## Attaching package: 'quanteda.sentiment'
-## The following object is masked from 'package:quanteda':
-## 
-##     data_dictionary_LSD2015
+data(data_corpus_inaugural, package = "quanteda")
 
 # inspect the dictionary and its polarities
 print(data_dictionary_geninqposneg, max_nval = 8)
 ## Dictionary object with 2 key entries.
-## Polarities: pos = "positive"; neg = "negative" .
+## Polarities: pos = "positive"; neg = "negative" 
 ## - [positive]:
 ##   - abide, ability, able, abound, absolve, absorbent, absorption, abundance [ ... and 1,645 more ]
 ## - [negative]:
@@ -117,10 +109,16 @@ For a valence dictionary, we can compute this for the “pleasure”
 category of the Affective Norms for English Words (ANEW):
 
 ``` r
+library("quanteda", warn.conflicts = FALSE, quietly = TRUE)
+## Package version: 2.1.0.9000
+## Parallel computing: 2 of 12 threads used.
+## See https://quanteda.io for tutorials and examples.
+library("quanteda.sentiment")
+
 # inspect the dictionary and its valences
 print(data_dictionary_ANEW, max_nval = 8)
 ## Dictionary object with 3 key entries.
-## Valences set for keys: pleasure, arousal, dominance .
+## Valences set for keys: pleasure, arousal, dominance 
 ## - [pleasure]:
 ##   - abduction, able, abortion, absent, absurd, abundance, abuse, accept [ ... and 2,463 more ]
 ## - [arousal]:

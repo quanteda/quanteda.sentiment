@@ -9,7 +9,7 @@ knitr::opts_chunk$set(
   fig.path = "man/images/"
 )
 ```
-```{r echo=FALSE, results="hide", message=FALSE}
+```{r echo = FALSE, results = "hide", message = FALSE}
 library("badger")
 ```
 
@@ -49,23 +49,23 @@ The package comes with the following built-in dictionaries:
 
 | Name                             | Description                                                   | Polarity | Valence |
 |:---------------------------------|:--------------------------------------------------------------|:--------:|:-------:|
-| data_dictionary_AFINN            | Nielsen's (2011) 'new ANEW' valenced word list                |          |    ✔️    |
-| data_dictionary_ANEW             | Affective Norms for English Words (ANEW)                      |          |    ✔️    |
-| data_dictionary_geninqposneg     | Augmented General Inquirer _Positiv_ and _Negativ_ dictionary |     ✔️    |         |
-| data_dictionary_HuLiu            | Positive and negative words from Hu and Liu (2004)            |     ✔️    |         |
-| data_dictionary_LoughranMcDonald | Loughran and McDonald Sentiment Word Lists                    |     ✔️    |         |
-| data_dictionary_LSD2015          | Lexicoder Sentiment Dictionary (2015)                         |     ✔️    |         |
-| data_dictionary_NRC              | NRC Word-Emotion Association Lexicon                          |     ✔️    |         |
-| data_dictionary_Rauh             | Rauh's German Political Sentiment Dictionary                  |     ✔️    |         |
+| data_dictionary_AFINN            | Nielsen's (2011) 'new ANEW' valenced word list                |          |    ✔    |
+| data_dictionary_ANEW             | Affective Norms for English Words (ANEW)                      |          |    ✔    |
+| data_dictionary_geninqposneg     | Augmented General Inquirer _Positiv_ and _Negativ_ dictionary |     ✔    |         |
+| data_dictionary_HuLiu            | Positive and negative words from Hu and Liu (2004)            |     ✔    |         |
+| data_dictionary_LoughranMcDonald | Loughran and McDonald Sentiment Word Lists                    |     ✔    |         |
+| data_dictionary_LSD2015          | Lexicoder Sentiment Dictionary (2015)                         |     ✔    |         |
+| data_dictionary_NRC              | NRC Word-Emotion Association Lexicon                          |     ✔    |         |
+| data_dictionary_Rauh             | Rauh's German Political Sentiment Dictionary                  |     ✔    |         |
 | data_dictionary_sentiws          | SentimentWortschatz (SentiWS)                                 |     ✔    |    ✔    |
 
 
 ## Examples
 
-For a polarity dictionary, we can use the postive and negative key categories from the General Inquirer dictionary:
+For a polarity dictionary, we can use the positive and negative key categories from the General Inquirer dictionary:
 ```{r}
-library("quanteda", warn.conflicts = FALSE, quietly = TRUE)
 library("quanteda.sentiment")
+data(data_corpus_inaugural, package = "quanteda")
 
 # inspect the dictionary and its polarities
 print(data_dictionary_geninqposneg, max_nval = 8)
@@ -77,6 +77,9 @@ tail(data_corpus_inaugural) %>%
 
 For a valence dictionary, we can compute this for the "pleasure" category of the Affective Norms for English Words (ANEW): 
 ```{r}
+library("quanteda", warn.conflicts = FALSE, quietly = TRUE)
+library("quanteda.sentiment")
+
 # inspect the dictionary and its valences
 print(data_dictionary_ANEW, max_nval = 8)
 lapply(valence(data_dictionary_ANEW), head, 8)
@@ -85,6 +88,7 @@ lapply(valence(data_dictionary_ANEW), head, 8)
 tail(data_corpus_inaugural) %>%
   textstat_valence(dictionary = data_dictionary_ANEW["pleasure"])
 ```
+
 We can compare two measures computed in different ways (although they are not comparable, really, since they are different lexicons):
 ```{r}
 # ensure we have this package's version of the dictionary
@@ -108,4 +112,3 @@ Good enough for government work!
 ## Where to learn more
 
 Each dictionary and function has extensive documentation, including references to social scientific research articles where each sentiment concept is described in detail.  There is also a package vignette with more detailed examples.
-

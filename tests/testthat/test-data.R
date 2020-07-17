@@ -35,17 +35,17 @@ test_that("dictionaries have polarities and valences set", {
   
   expect_output(
     print(data_dictionary_NRC, 0, 0),
-    'Dictionary object with 10 key entries.\nPolarities: pos = "positive"; neg = "negative".'
+    'Dictionary object with 10 key entries.\nPolarities: pos = "positive"; neg = "negative"'
   )
 
   expect_output(
     print(data_dictionary_Rauh, 0, 0),
-    'Dictionary object with 4 key entries.\nPolarities: pos = "positive", "neg_negative"; neg = "negative", "neg_positive".'
+    'Dictionary object with 4 key entries.\nPolarities: pos = "positive", "neg_negative"; neg = "negative", "neg_positive"'
   )
 
   expect_output(
     print(data_dictionary_sentiws, 0, 0),
-    'Dictionary object with 2 key entries.\nPolarities: pos = "positive"; neg = "negative" \b.\nValences set for keys: positive, negative \b.',
+    'Dictionary object with 2 key entries.\nPolarities: pos = "positive"; neg = "negative" \nValences set for keys: positive, negative',
     fixed = TRUE
   )
 })

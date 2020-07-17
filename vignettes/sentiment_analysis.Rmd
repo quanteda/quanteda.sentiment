@@ -307,7 +307,6 @@ textstat_valence(txt, dictionary = data_dictionary_LSD2015, norm = "dict")
 
 ## References
 
-
 Bradley, M.M. & Lang, P.J. (2017). [Affective Norms for English Words (ANEW): Instruction manual and affective ratings](https://www.uvm.edu/pdodds/teaching/courses/2009-08UVM-300/docs/others/everything/bradley1999a.pdf). _Technical Report C-3_. Gainesville, FL: UF Center for the Study of Emotion and Attention.
 
 Liu, B. (2015). _Sentiment analysis: Mining opinions, sentiments, and emotions_. Cambridge University Press.

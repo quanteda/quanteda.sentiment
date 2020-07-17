@@ -3,7 +3,7 @@ context("test misc aspects")
 test_that("printing dictionary3 works", {
   expect_output(
     print(data_dictionary_AFINN, 0, 0),
-    "Dictionary object with 1 key entry.\nValences set for keys: AFINN \b.",
+    "Dictionary object with 1 key entry.\nValences set for keys: AFINN ",
     fixed = TRUE
   )
   
@@ -13,7 +13,7 @@ test_that("printing dictionary3 works", {
   polarity(dict) <- list(pos = "one", neg = "two")
   expect_output(
     print(dict, 0, 0),
-    'Dictionary object with 2 primary key entries and 2 nested levels.\nPolarities: pos = "one"; neg = "two" \b.',
+    'Dictionary object with 2 primary key entries and 2 nested levels.\nPolarities: pos = "one"; neg = "two" ',
     fixed = TRUE
   )
 })

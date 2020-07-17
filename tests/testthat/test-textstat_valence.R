@@ -150,7 +150,7 @@ test_that("dictionary print method shows valence and polarity", {
   valence(dict) <- c(happy = 1, sad = -1)
   expect_output(print(dict),
                 "Dictionary object with 2 key entries.
-Valences set for keys: happy, sad \b.
+Valences set for keys: happy, sad 
 - [happy]:
   - happy, jubilant, exuberant
 - [sad]:
@@ -164,7 +164,7 @@ Valences set for keys: happy, sad \b.
                         anger = c(3.1, 2.4, 2.9, 4.1, 5.0))
   expect_output(print(dict),
                 "Dictionary object with 2 key entries.
-Valences set for keys: happiness, anger \b.
+Valences set for keys: happiness, anger 
 - [happiness]:
   - happy, jubilant, exuberant, content
 - [anger]:
@@ -256,5 +256,29 @@ test_that("worker functions work", {
   expect_error(
     quanteda.sentiment:::flip_valence(dict),
     "valence not set"
+  )
+})
+
+test_that("valence error conditions work", {
+  dict <- dictionary(list(
+    happy = c("okay", "exuberant"),
+    sad = c("okay", "depressed")
+  ))
+  
+  expect_error(
+    valence(dict) <- list(happy = c(okay = 1, exuberant = 3),
+                          c(depressed = -4, okay = -2)),
+    "valence must be a fully named list"
+  )
+  
+  expect_error(
+    valence(dict) <- list(happy = c(okay = 1, exuberant = 3),
+                          other = c(depressed = -4, okay = -2)),
+    "'other' is not a dictionary key"
+  )
+  
+  expect_error(
+    valence(dict) <- list(happy = c(1, 3, 2)),
+    "valence value length not equal to number of values for key 'happy'"
   )
 })
