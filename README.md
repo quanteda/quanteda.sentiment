@@ -169,8 +169,9 @@ ggplot(data.frame(sent_pol, valence = sent_val$sentiment),
   geom_point()
 ```
 
-![](man/images/unnamed-chunk-6-1.png)<!-- --> Good enough for government
-work\!
+![](man/images/unnamed-chunk-6-1.png)<!-- --> 
+
+Good enough for government work\!
 
 ## Where to learn more
 
