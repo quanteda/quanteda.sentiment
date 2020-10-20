@@ -5,6 +5,8 @@
 \alias{dictionary3-class}
 \alias{print,dictionary3-method}
 \alias{print.dictionary3}
+\alias{[,dictionary3,index,ANY,ANY-method}
+\alias{[[,dictionary3,index-method}
 \title{dictionary3 class}
 \usage{
 \S4method{print}{dictionary3}(
@@ -14,6 +16,10 @@
   show_summary = quanteda_options("print_dictionary_summary"),
   ...
 )
+
+\S4method{[}{dictionary3,index,ANY,ANY}(x, i)
+
+\S4method{[[}{dictionary3,index}(x, i)
 }
 \arguments{
 \item{max_nkey}{max number of keys to print; default is from the
@@ -21,6 +27,10 @@
 
 \item{max_nval}{max number of values to print; default is from the
 \code{print_dictionary_max_nval} setting of \code{\link[=quanteda_options]{quanteda_options()}}}
+
+\item{i}{index for entries}
+
+\item{object}{the dictionary to be extracted}
 }
 \description{
 This extends the \pkg{quanteda} \code{dictionary2} class with a version that

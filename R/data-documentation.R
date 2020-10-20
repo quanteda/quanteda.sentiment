@@ -295,6 +295,7 @@
 #'   *International Conference on Language Resources and Evaluation*, 17--23 May
 #'   2010 LREC'10.
 #' @examples
+#' \donttest{
 #' # tokenize example text
 #' toks <- quanteda::tokens("nicht schlecht dieses wunderschöne Wörterbuch")
 #' # replace negation markers with "not"
@@ -306,6 +307,7 @@
 #'
 #' # apply dictionary
 #' quanteda::dfm(toks2, dictionary = data_dictionary_Rauh)
+#' }
 #' @keywords data
 "data_dictionary_Rauh"
 

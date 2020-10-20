@@ -56,3 +56,57 @@ setMethod("print", signature(x = "dictionary3"),
             }
             invisible(print_dictionary(x, 1, max_nkey, max_nval, ...))
           })
+
+build_dictionary2 <- quanteda:::build_dictionary2
+field_object <- quanteda:::field_object
+
+#' @param object the dictionary to be extracted
+#' @param i index for entries
+#' @rdname dictionary3
+#' @export
+setMethod("[",
+          signature = c("dictionary3", i = "index"),
+          function(x, i) {
+              x <- as.dictionary(x)
+              x <- unclass(x)
+              attrs <- attributes(x)
+              is_category <- vapply(x[i], function(y) is.list(y), logical(1))
+              result <- build_dictionary2(x[i][is_category],
+                                          separator = field_object(attrs, "separator"),
+                                          valuetype = field_object(attrs, "valuetype"))
+              meta(result) <- attrs[["meta"]][["user"]]
+              result@meta$object <- attrs[["meta"]][["object"]]
+              class(result) <- "dictionary3"
+
+              # subset valences, if they exist
+              if (!is.null(valence(result)))
+                valence(result) <- valence(result)[names(result)]
+              # subset polarities, if they exist
+              if (!is.null(polarity(result)))
+                polarity(result) <- lapply(polarity(result), 
+                                           function(y) y[y %in% names(result)])
+          
+              result
+          })
+
+#' @param object the dictionary to be extracted
+#' @param i index for entries
+#' @rdname dictionary3
+#' @export
+setMethod("[[",
+          signature = c("dictionary3", i = "index"),
+          function(x, i) {
+              x <- as.dictionary(x)
+              x <- unclass(x)
+              attrs <- attributes(x)
+              is_category <- vapply(x[[i]], function(y) is.list(y), logical(1))
+              if (all(is_category == FALSE)) {
+                  result <- unlist(x[[i]], use.names = FALSE)
+              } else {
+                  result <- build_dictionary2(x[[i]][is_category],
+                                    separator = field_object(attrs, "separator"),
+                                    valuetype = field_object(attrs, "valuetype"))
+                  class(result) <- "dictionary3"
+              }
+              result
+          })

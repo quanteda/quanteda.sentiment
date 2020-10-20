@@ -30,3 +30,27 @@ test_that("friendly error messages work", {
     fixed = TRUE
   )
 })
+
+test_that("subsetting preserves valence and polarity", {
+  expect_output(
+    print(data_dictionary_ANEW[1], 0, 0),
+    "Dictionary object with 1 key entry.\nValences set for keys: pleasure ",
+    fixed = TRUE
+  )
+  expect_output(
+    print(data_dictionary_ANEW["pleasure"], 0, 0),
+    "Dictionary object with 1 key entry.\nValences set for keys: pleasure ",
+    fixed = TRUE
+  )
+  
+  dict <- quanteda::dictionary(list(one = c("a", "b"),
+                                    two = c("c", "d"),
+                                    three = c("e", "f")))
+  polarity(dict) <- list(pos = c("one", "two"), neg = "three")
+  
+  expect_output(
+    print(dict[c(1, 3)], 0, 0),
+    'Dictionary object with 2 key entries.\nPolarities: pos = "one"; neg = "three" ',
+    fixed = TRUE
+  )
+})

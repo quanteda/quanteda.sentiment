@@ -36,6 +36,7 @@ changes the terms "nicht|nichts|kein|keine|keinen" to a joint term altering
 some of the features of the original corpus.
 }
 \examples{
+\donttest{
 # tokenize example text
 toks <- quanteda::tokens("nicht schlecht dieses wunderschöne Wörterbuch")
 # replace negation markers with "not"
@@ -47,6 +48,7 @@ toks2 <- quanteda::tokens_compound(toks1, data_dictionary_Rauh, concatenator = "
 
 # apply dictionary
 quanteda::dfm(toks2, dictionary = data_dictionary_Rauh)
+}
 }
 \references{
 Rauh, C. (2018). \href{https://doi.org/10.1080/19331681.2018.1485608}{Validating a Sentiment Dictionary for German Political Language: A Workbench Note}.

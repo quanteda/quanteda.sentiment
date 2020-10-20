@@ -4,7 +4,7 @@
 <!-- badges: start -->
 
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/quanteda.sentiment)](https://cran.r-project.org/package=quanteda.sentiment)
-[![](https://img.shields.io/badge/devel%20version-0.2-royalblue.svg)](https://github.com/quanteda/quanteda.sentiment)
+[![](https://img.shields.io/badge/devel%20version-0.21-royalblue.svg)](https://github.com/quanteda/quanteda.sentiment)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![R build
@@ -110,8 +110,8 @@ category of the Affective Norms for English Words (ANEW):
 
 ``` r
 library("quanteda", warn.conflicts = FALSE, quietly = TRUE)
-## Package version: 2.1.0.9000
-## Parallel computing: 2 of 12 threads used.
+## Package version: 2.1.2
+## Parallel computing: 12 of 12 threads used.
 ## See https://quanteda.io for tutorials and examples.
 library("quanteda.sentiment")
 
