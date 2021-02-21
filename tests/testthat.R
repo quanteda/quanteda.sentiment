@@ -1,5 +1,5 @@
 library("testthat")
-library("quanteda.sentiment")
 library("quanteda")
+library("quanteda.sentiment")
 
 test_check("quanteda.sentiment")

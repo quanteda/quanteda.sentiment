@@ -75,7 +75,7 @@ textstat_polarity.tokens <- function(x, dictionary, ...) {
     polarity(poldict) <- polarity(dict)
 
     tokens(x) %>%
-        tokens_lookup(dictionary = dict, nomatch = "other") %>%
+        tokens_lookup(dictionary = dict, nomatch = "other", nested_scope = "dictionary") %>%
         dfm() %>%
         textstat_polarity(dictionary = poldict, ...)
 }

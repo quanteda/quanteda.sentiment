@@ -171,3 +171,15 @@ test_that("get_polarity_dictionary() works", {
         "'okay' key not found in this dictionary"
     )
 })
+
+test_that("nested scope works for textstatpolarity on tokens", {
+  dict <- dictionary(list(positive = "good", negative = "not good"))
+  polarity(dict) <- list(pos = "positive", neg = "negative")
+  valence(dict) <- c(positive = 1, negative = -1)
+  toks <- tokens("The test is not good")
+  
+  expect_equivalent(
+    textstat_polarity(toks, dictionary = dict, fun = sent_abspropdiff),
+    data.frame(doc_id = "text1", sentiment = -0.25, row.names = NULL)
+  )
+})

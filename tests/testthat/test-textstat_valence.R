@@ -282,3 +282,15 @@ test_that("valence error conditions work", {
     "valence value length not equal to number of values for key 'happy'"
   )
 })
+
+test_that("nested scope works for textstat_valence on tokens", {
+  dict <- dictionary(list(positive = "good", negative = "not good"))
+  polarity(dict) <- list(pos = "positive", neg = "negative")
+  valence(dict) <- c(positive = 1, negative = -1)
+  toks <- tokens("The test is not good")
+  
+  expect_equivalent(
+    textstat_valence(toks, dictionary = dict),
+    data.frame(doc_id = "text1", sentiment = -1, row.names = NULL)
+  )
+})
