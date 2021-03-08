@@ -1,5 +1,4 @@
-context("test data")
-
+library("quanteda")
 data("data_dictionary_LSD2015", package = "quanteda.sentiment")
 
 test_that("dictionaries have polarities and valences set", {

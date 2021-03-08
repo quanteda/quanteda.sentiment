@@ -32,7 +32,7 @@ setMethod("print", signature(x = "dictionary3"),
                    max_nval = quanteda_options("print_dictionary_max_nval"),
                    show_summary = quanteda_options("print_dictionary_summary"),
                    ...) {
-            x <- as.dictionary(x)
+            # x <- as.dictionary(x)
             if (show_summary) {
               depth <- dictionary_depth(x)
               lev <- if (depth > 1L) " primary" else ""
@@ -67,7 +67,7 @@ field_object <- quanteda:::field_object
 setMethod("[",
           signature = c("dictionary3", i = "index"),
           function(x, i) {
-              x <- as.dictionary(x)
+              # x <- as.dictionary(x)
               x <- unclass(x)
               attrs <- attributes(x)
               is_category <- vapply(x[i], function(y) is.list(y), logical(1))
@@ -96,7 +96,7 @@ setMethod("[",
 setMethod("[[",
           signature = c("dictionary3", i = "index"),
           function(x, i) {
-              x <- as.dictionary(x)
+              # x <- as.dictionary(x)
               x <- unclass(x)
               attrs <- attributes(x)
               is_category <- vapply(x[[i]], function(y) is.list(y), logical(1))

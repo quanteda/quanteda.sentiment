@@ -1,4 +1,4 @@
-context("test textstat_valence")
+library("quanteda")
 
 test_that("textstat_valence works for uniform valences within key", {
   dict <- dictionary(list(positive = c("good", "great"),
@@ -184,7 +184,7 @@ test_that("overlapping values work as expected", {
   )
   expect_identical(
     textstat_valence("Depressed not okay", dict)$sentiment,
-    textstat_valence(dfm("Depressed not okay"), dict)$sentiment
+    textstat_valence(dfm(tokens("Depressed not okay")), dict)$sentiment
   )
 })
 

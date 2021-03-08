@@ -1,5 +1,4 @@
-context("test textstat_polarity")
-
+library("quanteda")
 test_that("textstat_polarity works on all object types", {
     txt <- c(d1 = "good good bad bad good word1 word1 word1 word2 word2",
              d2 = "good",
@@ -30,7 +29,7 @@ test_that("textstat_polarity works on all object types", {
     )
     expect_identical(
         textstat_polarity(txt, dictionary = data_dictionary_LSD2015),
-        textstat_polarity(dfm(txt), dictionary = data_dictionary_LSD2015)
+        textstat_polarity(dfm(tokens(txt)), dictionary = data_dictionary_LSD2015)
     )
 })
 

@@ -1,4 +1,4 @@
-context("test misc aspects")
+library("quanteda")
 
 test_that("printing dictionary3 works", {
   expect_output(
