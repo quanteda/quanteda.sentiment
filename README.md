@@ -4,7 +4,7 @@
 <!-- badges: start -->
 
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/quanteda.sentiment)](https://cran.r-project.org/package=quanteda.sentiment)
-[![](https://img.shields.io/badge/devel%20version-0.21-royalblue.svg)](https://github.com/quanteda/quanteda.sentiment)
+[![](https://img.shields.io/badge/devel%20version-0.22-royalblue.svg)](https://github.com/quanteda/quanteda.sentiment)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![R build
@@ -39,22 +39,22 @@ key attribute, in which case the keys are assigned a *polarity* such as
 *valence*, in the form of some continuous value indicating a degree of
 sentiment. Each is implemented in a separate function:
 
-  - **Polarity-based sentiment.** This is implemented via
+-   **Polarity-based sentiment.** This is implemented via
     `textstat_polarity()`, for computing a sentiment based on keys set
     as “poles” of positive versus negative sentiment. Setting polarity
     is dones through the `polarity()<-` function and can be set for any
     dictionary, for any keys. “Sentiment” here can be broadly construed
     as any contrasting pair of poles, such as “Democrat” versus
-    “Republican”, for instance. More than one key can be associated
-    with the same pole.
-    
-    Polar values are converted into sentiment scores using a flexible
-    function, such as \(\mathrm{log}(pos / neg)\), or
-    \((pos - neg)/(pos + neg)\). **quanteda.sentiment** offers three
-    built-in functions, but the user can supply any function for
-    combining polarities.
+    “Republican”, for instance. More than one key can be associated with
+    the same pole.
 
-  - **Valence-based sentiment.** This is implemented via
+    Polar values are converted into sentiment scores using a flexible
+    function, such as *l**o**g*(*p**o**s*/*n**e**g*), or
+    (*p**o**s* − *n**e**g*)/(*p**o**s* + *n**e**g*).
+    **quanteda.sentiment** offers three built-in functions, but the user
+    can supply any function for combining polarities.
+
+-   **Valence-based sentiment.** This is implemented via
     `textstat_valence()`, for computing sentiment as the average valence
     of a document’s words, based on a dictionary whose values have
     numeric valence scores. Valence scores are set using the
@@ -64,7 +64,7 @@ sentiment. Each is implemented in a separate function:
 The package comes with the following built-in dictionaries:
 
 | Name                               | Description                                                   | Polarity | Valence |
-| :--------------------------------- | :------------------------------------------------------------ | :------: | :-----: |
+|:-----------------------------------|:--------------------------------------------------------------|:--------:|:-------:|
 | data\_dictionary\_AFINN            | Nielsen’s (2011) ‘new ANEW’ valenced word list                |          |    ✔    |
 | data\_dictionary\_ANEW             | Affective Norms for English Words (ANEW)                      |          |    ✔    |
 | data\_dictionary\_geninqposneg     | Augmented General Inquirer *Positiv* and *Negativ* dictionary |    ✔     |         |
@@ -96,13 +96,13 @@ print(data_dictionary_geninqposneg, max_nval = 8)
 # compute sentiment
 tail(data_corpus_inaugural) %>%
   textstat_polarity(dictionary = data_dictionary_geninqposneg)
-##         doc_id sentiment
-## 1 1997-Clinton 0.8749574
-## 2    2001-Bush 0.9233579
-## 3    2005-Bush 0.9829457
-## 4   2009-Obama 0.5666378
-## 5   2013-Obama 0.7597420
-## 6   2017-Trump 0.7724428
+##           doc_id sentiment
+## 1      2001-Bush 0.9233579
+## 2      2005-Bush 0.9829457
+## 3     2009-Obama 0.5666378
+## 4     2013-Obama 0.7597420
+## 5     2017-Trump 0.7724428
+## 6 2021-Biden.txt 0.6018714
 ```
 
 For a valence dictionary, we can compute this for the “pleasure”
@@ -110,7 +110,9 @@ category of the Affective Norms for English Words (ANEW):
 
 ``` r
 library("quanteda", warn.conflicts = FALSE, quietly = TRUE)
-## Package version: 2.1.2
+## Package version: 3.0.0
+## Unicode version: 10.0
+## ICU version: 61.1
 ## Parallel computing: 12 of 12 threads used.
 ## See https://quanteda.io for tutorials and examples.
 library("quanteda.sentiment")
@@ -141,13 +143,13 @@ lapply(valence(data_dictionary_ANEW), head, 8)
 # compute the sentiment
 tail(data_corpus_inaugural) %>%
   textstat_valence(dictionary = data_dictionary_ANEW["pleasure"])
-##         doc_id sentiment
-## 1 1997-Clinton  5.942169
-## 2    2001-Bush  6.091330
-## 3    2005-Bush  6.308839
-## 4   2009-Obama  5.841437
-## 5   2013-Obama  6.045129
-## 6   2017-Trump  6.223944
+##           doc_id sentiment
+## 1      2001-Bush  6.091330
+## 2      2005-Bush  6.308839
+## 3     2009-Obama  5.841437
+## 4     2013-Obama  6.045129
+## 5     2017-Trump  6.223944
+## 6 2021-Biden.txt  6.018528
 ```
 
 We can compare two measures computed in different ways (although they
@@ -172,7 +174,7 @@ ggplot(data.frame(sent_pol, valence = sent_val$sentiment),
 
 ![](man/images/unnamed-chunk-6-1.png)<!-- -->
 
-Good enough for government work\!
+Good enough for government work!
 
 ## Where to learn more
 

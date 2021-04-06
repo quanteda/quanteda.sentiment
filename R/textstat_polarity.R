@@ -152,16 +152,20 @@ polarity.dictionary2 <- function(x) {
 
 #' @export
 "polarity<-.dictionary2" <- function(x, value) {
-    if (!setequal(union(c("pos", "neg", "neut"), names(value)),
-                  c("pos", "neg", "neut")) ||
-        !is.list(value)) {
-        stop("value must be a list of 'pos', 'neg', and (optionally) 'neut'",
-            call. = FALSE)
+    if (!is.null(value)) {
+        if (!setequal(union(c("pos", "neg", "neut"), names(value)),
+                      c("pos", "neg", "neut")) ||
+            !is.list(value)) {
+            stop("value must be a list of 'pos', 'neg', and (optionally) 'neut'",
+                 call. = FALSE)
+        }
+        check_that_poles_exist(x, value)
+        class(x) <- "dictionary3"
+    } else {
+        if (is.null(valence(x))) class(x) <- "dictionary2"
     }
-    check_that_poles_exist(x, value)
-
+        
     x@meta$object$polarity <- value
-    class(x) <- "dictionary3"
     x
 }
 

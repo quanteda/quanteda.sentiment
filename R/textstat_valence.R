@@ -197,10 +197,15 @@ valence.dictionary2 <- function(x) {
 
 #' @export
 "valence<-.dictionary2" <- function(x, value) {
-  value <- as.list(value)
-  check_valences(x, value)
-  x@meta$object$valence <- set_valences(x, value)
-  class(x) <- "dictionary3"
+  if (!is.null(value)) {
+    value <- as.list(value)
+    check_valences(x, value)
+    x@meta$object$valence <- set_valences(x, value)
+    class(x) <- "dictionary3"
+  } else {
+    x@meta$object$valence <- NULL
+    if (!is.null(polarity(x))) class(x) <- "dictionary2"
+  }
   x
 }
 
