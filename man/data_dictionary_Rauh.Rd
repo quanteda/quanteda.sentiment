@@ -47,7 +47,7 @@ toks1 <- quanteda::tokens_replace(toks, pattern = c("nicht", "nichts", "kein",
 toks2 <- quanteda::tokens_compound(toks1, data_dictionary_Rauh, concatenator = " ")
 
 # apply dictionary
-quanteda::dfm(toks2, dictionary = data_dictionary_Rauh)
+quanteda::dfm_lookup(dfm(toks2), dictionary = data_dictionary_Rauh)
 }
 }
 \references{
