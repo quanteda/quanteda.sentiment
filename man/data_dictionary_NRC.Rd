@@ -5,7 +5,7 @@
 \alias{data_dictionary_NRC}
 \title{NRC Word-Emotion Association Lexicon}
 \format{
-An object of class \code{dictionary3} of length 10.
+An object of class \code{dictionary2} of length 10.
 }
 \source{
 \url{http://sentiment.nrc.ca/lexicons-for-research}

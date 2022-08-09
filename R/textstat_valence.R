@@ -80,10 +80,10 @@ textstat_valence.tokens <- function(x, dictionary,
   normalization <- match.arg(normalization)
   valence(dictionary) <- set_valences(dictionary, valence(dictionary))
   numdict <- dictionary(as.list(flip_valence(dictionary)))
-  as.tokens(x) %>%
+  quanteda::as.tokens(x) |>
     tokens_lookup(dictionary = numdict, nomatch = "other",
-                  nested_scope = "dictionary") %>%
-    dfm() %>%
+                  nested_scope = "dictionary") |>
+    dfm() |>
     aggregate_valence(norm = normalization)
 }
 
@@ -93,8 +93,8 @@ textstat_valence.dfm <- function(x, dictionary,
   normalization <- match.arg(normalization)
   valence(dictionary) <- set_valences(dictionary, valence(dictionary))
   numdict <- dictionary(as.list(flip_valence(dictionary)))
-  as.dfm(x) %>%
-    dfm_lookup(dictionary = numdict, nomatch = "other") %>%
+  as.dfm(x) |>
+    dfm_lookup(dictionary = numdict, nomatch = "other") |>
     aggregate_valence(norm = normalization)
 }
 
@@ -201,13 +201,14 @@ valence.dictionary2 <- function(x) {
     value <- as.list(value)
     check_valences(x, value)
     x@meta$object$valence <- set_valences(x, value)
-    class(x) <- "dictionary3"
   } else {
     x@meta$object$valence <- NULL
     if (!is.null(polarity(x))) class(x) <- "dictionary2"
   }
   x
 }
+
+dictionary_depth <- quanteda:::dictionary_depth
 
 check_valences <- function(dictionary, valences) {
   if (dictionary_depth(dictionary) > 1)

@@ -1,6 +1,6 @@
 library("quanteda")
 
-geninquirer <- read.csv("inquireraugmented.csv",
+geninquirer <- read.csv("geninquirer/inquireraugmented.csv",
                         stringsAsFactors = FALSE, comment.char = "")
 GIpos <-
     c(geninquirer$Entry[geninquirer$Positiv == "Positiv"],

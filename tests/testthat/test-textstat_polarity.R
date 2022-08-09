@@ -151,7 +151,7 @@ test_that("get_polarity_dictionary() works", {
     polarity(dict) <- list(pos = "happy", neg = "sad", neut = "okay")
 
     expect_identical(
-        quanteda.sentiment:::get_polarity_dictionary(dict) %>% 
+        quanteda.sentiment:::get_polarity_dictionary(dict) |>
             quanteda::as.list(),
         list(pos = c("happy", "jubilant", "exuberant"),
              neg = c("sad", "morose", "down"),
@@ -159,7 +159,7 @@ test_that("get_polarity_dictionary() works", {
     )
 
     expect_identical(
-        quanteda.sentiment:::get_polarity_dictionary(dict) %>% polarity(),
+        quanteda.sentiment:::get_polarity_dictionary(dict) |> polarity(),
         list(pos = "pos", neg = "neg", neut = "neut")
     )
     

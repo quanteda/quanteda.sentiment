@@ -3,8 +3,8 @@
 
 <!-- badges: start -->
 
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/quanteda.sentiment)](https://cran.r-project.org/package=quanteda.sentiment)
-[![](https://img.shields.io/badge/devel%20version-0.22-royalblue.svg)](https://github.com/quanteda/quanteda.sentiment)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/quanteda.sentiment)](https://cran.r-project.org/package=quanteda.sentiment)
+[![](https://img.shields.io/badge/devel%20version-0.3-royalblue.svg)](https://github.com/quanteda/quanteda.sentiment)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![R build
@@ -18,7 +18,7 @@ coverage](https://codecov.io/gh/quanteda/quanteda.sentiment/branch/master/graph/
 You can install **quanteda.sentiment** from GitHub with:
 
 ``` r
-devtools::install_github("quanteda/quanteda.sentiment")
+remotes::install_github("quanteda/quanteda.sentiment")
 ```
 
 The package is not yet on CRAN.
@@ -29,7 +29,7 @@ The package is not yet on CRAN.
 for computing sentiment on text. It has two main functions, for
 computing two types of sentiment. These follow the structure of a
 **quanteda** dictionary, which consists of *key* entries expressing the
-canonical concept, and *value* patterns (such as “good”, "sad\*", etc.)
+canonical concept, and *value* patterns (such as “good”, “sad\*“, etc.)
 to be matched in a text and counted as occurrences of that key.
 
 The approach to sentiment in this package approaches sentiment
@@ -49,8 +49,10 @@ sentiment. Each is implemented in a separate function:
     the same pole.
 
     Polar values are converted into sentiment scores using a flexible
-    function, such as *l**o**g*(*p**o**s*/*n**e**g*), or
-    (*p**o**s* − *n**e**g*)/(*p**o**s* + *n**e**g*).
+    function, such as
+    ![\mathrm{log}(pos / neg)](https://latex.codecogs.com/png.image?%5Cdpi%7B110%7D&space;%5Cbg_white&space;%5Cmathrm%7Blog%7D%28pos%20%2F%20neg%29 "\mathrm{log}(pos / neg)"),
+    or
+    ![(pos - neg)/(pos + neg)](https://latex.codecogs.com/png.image?%5Cdpi%7B110%7D&space;%5Cbg_white&space;%28pos%20-%20neg%29%2F%28pos%20%2B%20neg%29 "(pos - neg)/(pos + neg)").
     **quanteda.sentiment** offers three built-in functions, but the user
     can supply any function for combining polarities.
 
@@ -63,17 +65,17 @@ sentiment. Each is implemented in a separate function:
 
 The package comes with the following built-in dictionaries:
 
-| Name                               | Description                                                   | Polarity | Valence |
-|:-----------------------------------|:--------------------------------------------------------------|:--------:|:-------:|
-| data\_dictionary\_AFINN            | Nielsen’s (2011) ‘new ANEW’ valenced word list                |          |    ✔    |
-| data\_dictionary\_ANEW             | Affective Norms for English Words (ANEW)                      |          |    ✔    |
-| data\_dictionary\_geninqposneg     | Augmented General Inquirer *Positiv* and *Negativ* dictionary |    ✔     |         |
-| data\_dictionary\_HuLiu            | Positive and negative words from Hu and Liu (2004)            |    ✔     |         |
-| data\_dictionary\_LoughranMcDonald | Loughran and McDonald Sentiment Word Lists                    |    ✔     |         |
-| data\_dictionary\_LSD2015          | Lexicoder Sentiment Dictionary (2015)                         |    ✔     |         |
-| data\_dictionary\_NRC              | NRC Word-Emotion Association Lexicon                          |    ✔     |         |
-| data\_dictionary\_Rauh             | Rauh’s German Political Sentiment Dictionary                  |    ✔     |         |
-| data\_dictionary\_sentiws          | SentimentWortschatz (SentiWS)                                 |    ✔     |    ✔    |
+| Name                             | Description                                                   | Polarity | Valence |
+|:---------------------------------|:--------------------------------------------------------------|:--------:|:-------:|
+| data_dictionary_AFINN            | Nielsen’s (2011) ‘new ANEW’ valenced word list                |          |    ✔    |
+| data_dictionary_ANEW             | Affective Norms for English Words (ANEW)                      |          |    ✔    |
+| data_dictionary_geninqposneg     | Augmented General Inquirer *Positiv* and *Negativ* dictionary |    ✔     |         |
+| data_dictionary_HuLiu            | Positive and negative words from Hu and Liu (2004)            |    ✔     |         |
+| data_dictionary_LoughranMcDonald | Loughran and McDonald Sentiment Word Lists                    |    ✔     |         |
+| data_dictionary_LSD2015          | Lexicoder Sentiment Dictionary (2015)                         |    ✔     |         |
+| data_dictionary_NRC              | NRC Word-Emotion Association Lexicon                          |    ✔     |         |
+| data_dictionary_Rauh             | Rauh’s German Political Sentiment Dictionary                  |    ✔     |         |
+| data_dictionary_sentiws          | SentimentWortschatz (SentiWS)                                 |    ✔     |    ✔    |
 
 ## Examples
 
@@ -82,7 +84,17 @@ categories from the General Inquirer dictionary:
 
 ``` r
 library("quanteda.sentiment")
-data(data_corpus_inaugural, package = "quanteda")
+## Loading required package: quanteda
+## Package version: 3.2.1
+## Unicode version: 14.0
+## ICU version: 70.1
+## Parallel computing: 10 of 10 threads used.
+## See https://quanteda.io for tutorials and examples.
+## 
+## Attaching package: 'quanteda.sentiment'
+## The following object is masked from 'package:quanteda':
+## 
+##     data_dictionary_LSD2015
 
 # inspect the dictionary and its polarities
 print(data_dictionary_geninqposneg, max_nval = 8)
@@ -94,15 +106,15 @@ print(data_dictionary_geninqposneg, max_nval = 8)
 ##   - abandon, abandonment, abate, abdicate, abhor, abject, abnormal, abolish [ ... and 2,002 more ]
 
 # compute sentiment
-tail(data_corpus_inaugural) %>%
+tail(data_corpus_inaugural) |>
   textstat_polarity(dictionary = data_dictionary_geninqposneg)
-##           doc_id sentiment
-## 1      2001-Bush 0.9233579
-## 2      2005-Bush 0.9829457
-## 3     2009-Obama 0.5666378
-## 4     2013-Obama 0.7597420
-## 5     2017-Trump 0.7724428
-## 6 2021-Biden.txt 0.6018714
+##       doc_id sentiment
+## 1  2001-Bush 0.9233579
+## 2  2005-Bush 0.9829457
+## 3 2009-Obama 0.5666378
+## 4 2013-Obama 0.7597420
+## 5 2017-Trump 0.7724428
+## 6 2021-Biden 0.6018714
 ```
 
 For a valence dictionary, we can compute this for the “pleasure”
@@ -110,11 +122,6 @@ category of the Affective Norms for English Words (ANEW):
 
 ``` r
 library("quanteda", warn.conflicts = FALSE, quietly = TRUE)
-## Package version: 3.0.0
-## Unicode version: 10.0
-## ICU version: 61.1
-## Parallel computing: 12 of 12 threads used.
-## See https://quanteda.io for tutorials and examples.
 library("quanteda.sentiment")
 
 # inspect the dictionary and its valences
@@ -141,15 +148,15 @@ lapply(valence(data_dictionary_ANEW), head, 8)
 ##      3.49      6.83      4.59      4.35      4.73      5.80      3.69      5.41
 
 # compute the sentiment
-tail(data_corpus_inaugural) %>%
+tail(data_corpus_inaugural) |>
   textstat_valence(dictionary = data_dictionary_ANEW["pleasure"])
-##           doc_id sentiment
-## 1      2001-Bush  6.091330
-## 2      2005-Bush  6.308839
-## 3     2009-Obama  5.841437
-## 4     2013-Obama  6.045129
-## 5     2017-Trump  6.223944
-## 6 2021-Biden.txt  6.018528
+##       doc_id sentiment
+## 1  2001-Bush  6.091330
+## 2  2005-Bush  6.308839
+## 3 2009-Obama  5.841437
+## 4 2013-Obama  6.045129
+## 5 2017-Trump  6.223944
+## 6 2021-Biden  6.018528
 ```
 
 We can compare two measures computed in different ways (although they
@@ -159,10 +166,10 @@ are not comparable, really, since they are different lexicons):
 # ensure we have this package's version of the dictionary
 data("data_dictionary_LSD2015", package = "quanteda.sentiment")
 
-sent_pol <- tail(data_corpus_inaugural, 25) %>%
+sent_pol <- tail(data_corpus_inaugural, 25) |>
   textstat_polarity(dictionary = data_dictionary_LSD2015)
 sent_pol <- dplyr::mutate(sent_pol, polarity = sentiment)
-sent_val <- tail(data_corpus_inaugural, 25) %>%
+sent_val <- tail(data_corpus_inaugural, 25) |>
   textstat_valence(dictionary = data_dictionary_AFINN)
 
 library("ggplot2")

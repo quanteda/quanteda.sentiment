@@ -28,7 +28,7 @@ library("badger")
 You can install **quanteda.sentiment** from GitHub with:
 
 ```{r eval = FALSE}
-devtools::install_github("quanteda/quanteda.sentiment")
+remotes::install_github("quanteda/quanteda.sentiment")
 ```
 
 The package is not yet on CRAN.
@@ -65,13 +65,12 @@ The package comes with the following built-in dictionaries:
 For a polarity dictionary, we can use the positive and negative key categories from the General Inquirer dictionary:
 ```{r}
 library("quanteda.sentiment")
-data(data_corpus_inaugural, package = "quanteda")
 
 # inspect the dictionary and its polarities
 print(data_dictionary_geninqposneg, max_nval = 8)
 
 # compute sentiment
-tail(data_corpus_inaugural) %>%
+tail(data_corpus_inaugural) |>
   textstat_polarity(dictionary = data_dictionary_geninqposneg)
 ```
 
@@ -85,7 +84,7 @@ print(data_dictionary_ANEW, max_nval = 8)
 lapply(valence(data_dictionary_ANEW), head, 8)
 
 # compute the sentiment
-tail(data_corpus_inaugural) %>%
+tail(data_corpus_inaugural) |>
   textstat_valence(dictionary = data_dictionary_ANEW["pleasure"])
 ```
 
@@ -94,10 +93,10 @@ We can compare two measures computed in different ways (although they are not co
 # ensure we have this package's version of the dictionary
 data("data_dictionary_LSD2015", package = "quanteda.sentiment")
 
-sent_pol <- tail(data_corpus_inaugural, 25) %>%
+sent_pol <- tail(data_corpus_inaugural, 25) |>
   textstat_polarity(dictionary = data_dictionary_LSD2015)
 sent_pol <- dplyr::mutate(sent_pol, polarity = sentiment)
-sent_val <- tail(data_corpus_inaugural, 25) %>%
+sent_val <- tail(data_corpus_inaugural, 25) |>
   textstat_valence(dictionary = data_dictionary_AFINN)
 
 library("ggplot2")

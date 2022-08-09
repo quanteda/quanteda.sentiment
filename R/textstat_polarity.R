@@ -74,9 +74,9 @@ textstat_polarity.tokens <- function(x, dictionary, ...) {
     poldict <- dictionary(polarity(dict))
     polarity(poldict) <- polarity(dict)
 
-    tokens(x) %>%
-        tokens_lookup(dictionary = dict, nomatch = "other", nested_scope = "dictionary") %>%
-        dfm() %>%
+    tokens(x) |>
+        tokens_lookup(dictionary = dict, nomatch = "other", nested_scope = "dictionary") |>
+        dfm() |>
         textstat_polarity(dictionary = poldict, ...)
 }
 
@@ -160,7 +160,6 @@ polarity.dictionary2 <- function(x) {
                  call. = FALSE)
         }
         check_that_poles_exist(x, value)
-        class(x) <- "dictionary3"
     } else {
         if (is.null(valence(x))) class(x) <- "dictionary2"
     }

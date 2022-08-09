@@ -1,5 +1,6 @@
 library("quanteda")
 
+class(data_dictionary_NRC) <- "dictionary2"
 data_dictionary_NRC <- as.dictionary(data_dictionary_NRC)
 
 meta(data_dictionary_NRC) <- 

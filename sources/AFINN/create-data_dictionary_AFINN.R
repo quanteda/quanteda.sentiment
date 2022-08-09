@@ -2,8 +2,8 @@
 
 library("quanteda")
 
-afinn111 <- read.delim("AFINN-111.txt", header = FALSE, col.names = c("word", "valence"))
-afinn96 <- read.delim("AFINN-96.txt", header = FALSE, col.names = c("word", "valence"))
+afinn111 <- read.delim("AFINN/AFINN-111.txt", header = FALSE, col.names = c("word", "valence"))
+afinn96 <- read.delim("AFINN/AFINN-96.txt", header = FALSE, col.names = c("word", "valence"))
 
 afinn111 <- dplyr::arrange(afinn111, word)
 afinn96 <- dplyr::arrange(afinn96, word)
@@ -19,6 +19,9 @@ meta(data_dictionary_AFINN) <- list(
   reference = "Nielsen, F. Å. (2011). A new ANEW: Evaluation of a Word List for Sentiment Analysis in Microblogs. In Proceedings of the ESWC2011 Workshop on 'Making Sense of Microposts': Big Things Come in Small Packages, 93--98.",
   license = "This database of words is copyright protected and distributed under the Open Database License (ODbL) v1.0, http://www.opendatacommons.org/licenses/odbl/1.0/"
 )
+
+meta(data_dictionary_AFINN) <-
+  lapply(meta(data_dictionary_AFINN), function(x) Encoding(x) <- "UTF-8")
 
 usethis::use_data(data_dictionary_AFINN, overwrite = TRUE)
 
