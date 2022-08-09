@@ -70,7 +70,10 @@
 #' ## [1] "This"   "NEGATIVE"   "policy"   "will"   "NEG_POSITIVE" "POSITIVE."
 #'
 #' # on larger examples - notice that few negations are used
-#' dfm(tail(data_corpus_inaugural), dictionary = data_dictionary_LSD2015)
+#' tail(data_corpus_inaugural) |>
+#'   tokens() |>
+#'   tokens_lookup(dictionary = data_dictionary_LSD2015) |>
+#'   dfm()
 "data_dictionary_LSD2015"
 
 #' NRC Word-Emotion Association Lexicon
@@ -297,16 +300,17 @@
 #' @examples
 #' \donttest{
 #' # tokenize example text
-#' toks <- quanteda::tokens("nicht schlecht dieses wunderschöne Wörterbuch")
+#' toks <- tokens("nicht schlecht dieses wunderschöne Wörterbuch")
 #' # replace negation markers with "not"
-#' toks1 <- quanteda::tokens_replace(toks, pattern = c("nicht", "nichts", "kein",
+#' toks1 <- tokens_replace(toks, pattern = c("nicht", "nichts", "kein",
 #'                                                     "keine", "keinen"),
 #'                                   replacement = rep("not", 5))
 #' # compound bi-gram negation patterns
-#' toks2 <- quanteda::tokens_compound(toks1, data_dictionary_Rauh, concatenator = " ")
+#' toks2 <- tokens_compound(toks1, data_dictionary_Rauh, concatenator = " ")
 #'
 #' # apply dictionary
-#' quanteda::dfm(toks2, dictionary = data_dictionary_Rauh)
+#' tokens_lookup(toks2, dictionary = data_dictionary_Rauh) |>
+#'   dfm()
 #' }
 #' @keywords data
 "data_dictionary_Rauh"

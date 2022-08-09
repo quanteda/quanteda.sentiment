@@ -38,16 +38,17 @@ some of the features of the original corpus.
 \examples{
 \donttest{
 # tokenize example text
-toks <- quanteda::tokens("nicht schlecht dieses wunderschöne Wörterbuch")
+toks <- tokens("nicht schlecht dieses wunderschöne Wörterbuch")
 # replace negation markers with "not"
-toks1 <- quanteda::tokens_replace(toks, pattern = c("nicht", "nichts", "kein",
+toks1 <- tokens_replace(toks, pattern = c("nicht", "nichts", "kein",
                                                     "keine", "keinen"),
                                   replacement = rep("not", 5))
 # compound bi-gram negation patterns
-toks2 <- quanteda::tokens_compound(toks1, data_dictionary_Rauh, concatenator = " ")
+toks2 <- tokens_compound(toks1, data_dictionary_Rauh, concatenator = " ")
 
 # apply dictionary
-quanteda::dfm(toks2, dictionary = data_dictionary_Rauh)
+tokens_lookup(toks2, dictionary = data_dictionary_Rauh) |>
+  dfm()
 }
 }
 \references{

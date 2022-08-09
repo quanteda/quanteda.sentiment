@@ -69,7 +69,10 @@ tokens_lookup(tokens(txt), dictionary = data_dictionary_LSD2015,
 ## [1] "This"   "NEGATIVE"   "policy"   "will"   "NEG_POSITIVE" "POSITIVE."
 
 # on larger examples - notice that few negations are used
-dfm(tail(data_corpus_inaugural), dictionary = data_dictionary_LSD2015)
+tail(data_corpus_inaugural) |>
+  tokens() |>
+  tokens_lookup(dictionary = data_dictionary_LSD2015) |>
+  dfm()
 }
 \references{
 The objectives, development and reliability of the dictionary are discussed
