@@ -1,27 +1,27 @@
 Package: quanteda.sentiment
 Title: Sentiment analysis using quanteda
-Version: 0.22
+Version: 0.3
 Authors@R: c( person("Kenneth", "Benoit", email = "kbenoit@lse.ac.uk", role =
     c("aut", "cre", "cph")) )
 Description: Adds functions and dictionaries for computing sentiment using the 'quanteda' package.
+Depends:
+  R (>= 4.1.0),
+  quanteda (>= 3.2.1),
+  methods
 Imports:
-  quanteda (>= 2.0.1),
-  methods,
   Matrix,
   stringi
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.1
 Suggests: 
-    covr,
-    ggplot2,
-    knitr,
-    rmarkdown,
-    spelling,
-    testthat
+  covr,
+  ggplot2,
+  knitr,
+  rmarkdown,
+  spelling,
+  testthat
 Roxygen: list(markdown = TRUE)
 Language: en-GB
 VignetteBuilder: knitr
-Depends: 
-    R (>= 2.10)

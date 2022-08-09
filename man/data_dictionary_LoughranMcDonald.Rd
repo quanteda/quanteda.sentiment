@@ -5,7 +5,7 @@
 \alias{data_dictionary_LoughranMcDonald}
 \title{Loughran and McDonald Sentiment Word Lists}
 \format{
-An object of class \code{dictionary3} of length 9.
+An object of class \code{dictionary2} of length 9.
 }
 \source{
 \url{http://sraf.nd.edu/textual-analysis/resources/}

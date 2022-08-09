@@ -220,10 +220,10 @@
 #' (positive). AFINN-111, the latest version, contains 2,477 words and phrases.
 #' @source <http://www2.imm.dtu.dk/pubdb/views/publication_details.php?id=6010>
 #' @references
-#'   Nielsen, F. Å. (2011). [A new ANEW:
-#'   Evaluation of a Word List for Sentiment Analysis in Microblogs.](https://arxiv.org/abs/1103.2903) In
-#'   *Proceedings of the ESWC2011 Workshop on 'Making Sense of Microposts':
-#'   Big Things Come in Small Packages*, 93--98.
+#'   Nielsen, F. Å. (2011). [A new ANEW: Evaluation of a Word List for Sentiment
+#'   Analysis in Microblogs.](https://arxiv.org/abs/1103.2903) In *Proceedings
+#'   of the ESWC2011 Workshop on 'Making Sense of Microposts': Big Things Come
+#'   in Small Packages*, 93--98.
 #' @format 
 #' A [dictionary] with one key, `AFINN`, with valences from -5 (negative) to +5
 #' (positive).

@@ -1,9 +1,9 @@
 library("quanteda")
 
 data_dictionary_HuLiu <-
-    dictionary(list(positive = scan(file = "sources/Hu-Liu/positive-words.txt",
+    dictionary(list(positive = scan(file = "Hu-Liu/positive-words.txt",
                                     what = "character", comment.char = ";"),
-                    negative = scan(file = "sources/Hu-Liu/negative-words-UTF8.txt",
+                    negative = scan(file = "Hu-Liu/negative-words-UTF8.txt",
                                     what = "character", comment.char = ";")))
 
 meta(data_dictionary_HuLiu) <- 

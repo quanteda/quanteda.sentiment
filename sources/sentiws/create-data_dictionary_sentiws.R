@@ -22,10 +22,10 @@ read_senti_scores <- function(filename) {
     
 }
 
-positive <- read_senti_scores("sources/sentiws/SentiWS_v1.8c_Positive.txt") %>% 
+positive <- read_senti_scores("sentiws/SentiWS_v1.8c_Positive.txt") %>% 
     mutate(sentiment = "positive") %>%
     unique()
-negative <- read_senti_scores("sources/sentiws/SentiWS_v1.8c_Negative.txt") %>% 
+negative <- read_senti_scores("sentiws/SentiWS_v1.8c_Negative.txt") %>% 
     mutate(sentiment = "negative") %>%
     unique()
 sentis <- bind_rows(positive, negative)

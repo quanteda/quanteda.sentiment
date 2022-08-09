@@ -5,7 +5,7 @@
 \alias{data_dictionary_sentiws}
 \title{SentimentWortschatz (SentiWS)}
 \format{
-An object of class \code{dictionary3} of length 2.
+An object of class \code{dictionary2} of length 2.
 }
 \source{
 \url{http://wortschatz.uni-leipzig.de/en/download/}
