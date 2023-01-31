@@ -16,7 +16,7 @@ by a negation (used to convey positive sentiment)}
 }
 }
 \source{
-\url{https://doi.org/10.7910/DVN/BKBXWD}
+\doi{10.7910/DVN/BKBXWD}
 }
 \usage{
 data_dictionary_Rauh
@@ -52,8 +52,10 @@ tokens_lookup(toks2, dictionary = data_dictionary_Rauh) |>
 }
 }
 \references{
-Rauh, C. (2018). \href{https://doi.org/10.1080/19331681.2018.1485608}{Validating a Sentiment Dictionary for German Political Language: A Workbench Note}.
+Rauh, C. (2018). Validating a Sentiment Dictionary for German Political
+Language: A Workbench Note.
 \emph{Journal of Information Technology & Politics}, 15(4), 319--343.
+\doi{10.1080/19331681.2018.1485608}
 
 Remus, R., Quasthoff U., & Heyer, G. (2010). "\href{http://www.lrec-conf.org/proceedings/lrec2010/pdf/490_Paper.pdf}{SentiWS - a Publicly Available German-language Resource for Sentiment Analysis.}"
 In \emph{Proceedings of the 7th International Language Resources and Evaluation

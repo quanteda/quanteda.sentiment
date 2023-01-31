@@ -9,7 +9,7 @@ A \link{dictionary} with one key, \code{AFINN}, with valences from -5 (negative)
 (positive).
 }
 \source{
-\url{http://www2.imm.dtu.dk/pubdb/views/publication_details.php?id=6010}
+\url{http://www2.imm.dtu.dk/pubdb/pubs/6010-full.html}
 }
 \usage{
 data_dictionary_AFINN
@@ -22,7 +22,7 @@ English words rated for valence with values between -5 (negative) and +5
 }
 \section{License}{
 
-\href{http://www.opendatacommons.org/licenses/odbl/1.0/}{Open Database License (ODbL) v1.0}
+\href{https://opendatacommons.org/licenses/odbl/1-0/}{Open Database License (ODbL) v1.0}
 }
 
 \references{

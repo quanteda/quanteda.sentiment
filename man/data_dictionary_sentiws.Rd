@@ -8,7 +8,7 @@
 An object of class \code{dictionary2} of length 2.
 }
 \source{
-\url{http://wortschatz.uni-leipzig.de/en/download/}
+\url{https://wortschatz.uni-leipzig.de/en/download/}
 }
 \usage{
 data_dictionary_sentiws

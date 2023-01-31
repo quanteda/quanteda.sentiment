@@ -8,7 +8,7 @@
 An object of class \code{dictionary2} of length 10.
 }
 \source{
-\url{http://sentiment.nrc.ca/lexicons-for-research}
+\url{https://nrc.canada.ca/en/research-development/products-services/technical-advisory-services/sentiment-emotion-lexicons}
 
 See also \url{http://saifmohammad.com/WebPages/AccessResource.htm}
 }
@@ -79,7 +79,7 @@ queries and clarifications.
 Mohammad, S. & Turney, P. (2013). \href{https://arxiv.org/abs/1308.6297}{Crowdsourcing a Word-Emotion Association Lexicon}. \emph{Computational Intelligence},
 29(3), 436--465.
 
-Mohammad, S. & Turney, P. (2010). \href{https://dl.acm.org/citation.cfm?id=1860635}{Emotions Evoked by Common Words and Phrases: Using Mechanical Turk to Create an Emotion Lexicon}. In \emph{Proceedings of
+Mohammad, S. & Turney, P. (2010). \href{https://dl.acm.org/doi/10.5555/1860631.1860635}{Emotions Evoked by Common Words and Phrases: Using Mechanical Turk to Create an Emotion Lexicon}. In \emph{Proceedings of
 the NAACL-HLT 2010 Workshop on Computational Approaches to Analysis and
 Generation of Emotion in Text}, June 2010, LA, California.
 }

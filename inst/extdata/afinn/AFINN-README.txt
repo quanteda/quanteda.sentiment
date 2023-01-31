@@ -24,7 +24,7 @@ Network, and Services (SocialComNet 2011).
 
 This database of words is copyright protected and distributed under
 "Open Database License (ODbL) v1.0"
-http://www.opendatacommons.org/licenses/odbl/1.0/ or a similar
+https://www.opendatacommons.org/licenses/odbl/1.0/ or a similar
 copyleft license.
 
 See comments on the word list here:

@@ -58,6 +58,5 @@ textstat_polarity(toks, data_dictionary_LSD2015, fun = sent_fn)
 \references{
 Lowe, W., Benoit, K. R., Mikhaylov, S., & Laver, M. (2011).
 Scaling Policy Preferences from Coded Political Texts. \emph{Legislative Studies
-Quarterly}, 36(1), 123–155.
-\url{http://doi.org/10.1111/j.1939-9162.2010.00006.x}
+Quarterly}, 36(1), 123–155. \doi{10.1111/j.1939-9162.2010.00006.x}
 }

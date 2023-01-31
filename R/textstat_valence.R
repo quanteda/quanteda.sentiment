@@ -27,7 +27,7 @@
 #'   Lowe, W., Benoit, K. R., Mikhaylov, S., & Laver, M. (2011).
 #'   Scaling Policy Preferences from Coded Political Texts. _Legislative Studies
 #'   Quarterly_, 36(1), 123–155.
-#'   <http://doi.org/10.1111/j.1939-9162.2010.00006.x>
+#'   \doi{10.1111/j.1939-9162.2010.00006.x}
 #' @seealso [valence()]
 #' @examples
 #' library("quanteda")

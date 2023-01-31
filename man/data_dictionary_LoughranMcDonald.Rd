@@ -8,7 +8,7 @@
 An object of class \code{dictionary2} of length 9.
 }
 \source{
-\url{http://sraf.nd.edu/textual-analysis/resources/}
+\url{https://sraf.nd.edu/loughranmcdonald-master-dictionary/}
 }
 \usage{
 data_dictionary_LoughranMcDonald
@@ -21,7 +21,8 @@ categories are "negative" (2355 features), "positive" (354), "uncertainty" (297)
 and "modal words weak" (0).
 }
 \references{
-Loughran, T. & McDonald, B. (2011). \href{https://doi.org/10.1111/j.1540-6261.2010.01625.x}{When is a Liability not a Liability? Textual Analysis, Dictionaries, and 10-Ks}.
-\emph{Journal of Finance}, 66(1), 35--65.
+Loughran, T. & McDonald, B. (2011). When is a Liability not a Liability?
+Textual Analysis, Dictionaries, and 10-Ks.
+\emph{Journal of Finance}, 66(1), 35--65.  \doi{10.1111/j.1540-6261.2010.01625.x}
 }
 \keyword{data}

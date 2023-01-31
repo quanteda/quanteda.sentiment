@@ -50,7 +50,9 @@ scale.
 }
 \examples{
 library("quanteda")
-dfmat <- dfm(c("pos pos pos neg pos pos", "neg neg pos pos pos"))
+dfmat <- c("pos pos pos neg pos pos", "neg neg pos pos pos") |>
+  tokens() |>
+  dfm()
 sent_logit(dfmat)
 sent_abspropdiff(dfmat)
 
@@ -59,7 +61,9 @@ my_sent_fn <- function(x) (x[, "pos"] - x[, "neg"]) / rowSums(x) * 100
 my_sent_fn(dfmat)
 
 # user supplied function with fixed weights and using neutral category
-dfmat2 <- dfm(c("pos pos neut neg neut pos", "neg neg neut neut pos"))
+dfmat2 <- c("pos pos neut neg neut pos", "neg neg neut neut pos") |>
+  tokens() |>
+  dfm()
 my_sent_fn2 <- function(x) (x[, "pos"]*3 + x[, "neut"]*2 + x[, "neg"]*1)/3
 my_sent_fn2(dfmat2)
 }
@@ -67,7 +71,7 @@ my_sent_fn2(dfmat2)
 Lowe, W., Benoit, K. R., Mikhaylov, S., & Laver, M. (2011).
 Scaling Policy Preferences from Coded Political Texts. \emph{Legislative Studies
 Quarterly}, 36(1), 123–155.
-\url{http://doi.org/10.1111/j.1939-9162.2010.00006.x}
+\doi{10.1111/j.1939-9162.2010.00006.x}
 }
 \keyword{internal}
 \keyword{textstat}

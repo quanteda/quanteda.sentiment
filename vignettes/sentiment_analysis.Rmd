@@ -307,8 +307,8 @@ textstat_valence(txt, dictionary = data_dictionary_LSD2015, norm = "dict")
 
 ## References
 
-Bradley, M.M. & Lang, P.J. (2017). [Affective Norms for English Words (ANEW): Instruction manual and affective ratings](https://www.uvm.edu/pdodds/teaching/courses/2009-08UVM-300/docs/others/everything/bradley1999a.pdf). _Technical Report C-3_. Gainesville, FL: UF Center for the Study of Emotion and Attention.
+Bradley, M.M. & Lang, P.J. (2017). [Affective Norms for English Words (ANEW): Instruction manual and affective ratings](https://pdodds.w3.uvm.edu/teaching/courses/2009-08UVM-300/docs/others/everything/bradley1999a.pdf). _Technical Report C-3_. Gainesville, FL: UF Center for the Study of Emotion and Attention.
 
 Liu, B. (2015). _Sentiment analysis: Mining opinions, sentiments, and emotions_. Cambridge University Press.
 
-Lowe, W., Benoit, K. R., Mikhaylov, S., & Laver, M. (2011). Scaling Policy Preferences from Coded Political Texts. _Legislative Studies Quarterly_, 36(1), 123–155. [doi:10.1111/j.1939-9162.2010.00006.x](http://doi.org/10.1111/j.1939-9162.2010.00006.x).
+Lowe, W., Benoit, K. R., Mikhaylov, S., & Laver, M. (2011). Scaling Policy Preferences from Coded Political Texts. _Legislative Studies Quarterly_, 36(1), 123–155. \doi{10.1111/j.1939-9162.2010.00006.x}.

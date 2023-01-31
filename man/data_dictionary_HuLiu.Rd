@@ -12,7 +12,7 @@ A \link{dictionary} of fixed word patterns with two keys:
 }
 }
 \source{
-\url{http://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html}
+\url{https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html}
 }
 \usage{
 data_dictionary_HuLiu

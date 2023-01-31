@@ -6,11 +6,11 @@
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/quanteda.sentiment)](https://cran.r-project.org/package=quanteda.sentiment)
 [![](https://img.shields.io/badge/devel%20version-0.3-royalblue.svg)](https://github.com/quanteda/quanteda.sentiment)
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R build
 status](https://github.com/quanteda/quanteda.sentiment/workflows/R-CMD-check/badge.svg)](https://github.com/quanteda/quanteda.sentiment/actions)
 [![Codecov test
-coverage](https://codecov.io/gh/quanteda/quanteda.sentiment/branch/master/graph/badge.svg)](https://codecov.io/gh/quanteda/quanteda.sentiment?branch=master)
+coverage](https://codecov.io/gh/quanteda/quanteda.sentiment/branch/master/graph/badge.svg)](https://app.codecov.io/gh/quanteda/quanteda.sentiment?branch=master)
 <!-- badges: end -->
 
 ## Installation
@@ -39,29 +39,26 @@ key attribute, in which case the keys are assigned a *polarity* such as
 *valence*, in the form of some continuous value indicating a degree of
 sentiment. Each is implemented in a separate function:
 
--   **Polarity-based sentiment.** This is implemented via
-    `textstat_polarity()`, for computing a sentiment based on keys set
-    as “poles” of positive versus negative sentiment. Setting polarity
-    is dones through the `polarity()<-` function and can be set for any
-    dictionary, for any keys. “Sentiment” here can be broadly construed
-    as any contrasting pair of poles, such as “Democrat” versus
-    “Republican”, for instance. More than one key can be associated with
-    the same pole.
+- **Polarity-based sentiment.** This is implemented via
+  `textstat_polarity()`, for computing a sentiment based on keys set as
+  “poles” of positive versus negative sentiment. Setting polarity is
+  dones through the `polarity()<-` function and can be set for any
+  dictionary, for any keys. “Sentiment” here can be broadly construed as
+  any contrasting pair of poles, such as “Democrat” versus “Republican”,
+  for instance. More than one key can be associated with the same pole.
 
-    Polar values are converted into sentiment scores using a flexible
-    function, such as
-    ![\mathrm{log}(pos / neg)](https://latex.codecogs.com/png.image?%5Cdpi%7B110%7D&space;%5Cbg_white&space;%5Cmathrm%7Blog%7D%28pos%20%2F%20neg%29 "\mathrm{log}(pos / neg)"),
-    or
-    ![(pos - neg)/(pos + neg)](https://latex.codecogs.com/png.image?%5Cdpi%7B110%7D&space;%5Cbg_white&space;%28pos%20-%20neg%29%2F%28pos%20%2B%20neg%29 "(pos - neg)/(pos + neg)").
-    **quanteda.sentiment** offers three built-in functions, but the user
-    can supply any function for combining polarities.
+  Polar values are converted into sentiment scores using a flexible
+  function, such as $\mathrm{log}(pos / neg)$, or
+  $(pos - neg)/(pos + neg)$. **quanteda.sentiment** offers three
+  built-in functions, but the user can supply any function for combining
+  polarities.
 
--   **Valence-based sentiment.** This is implemented via
-    `textstat_valence()`, for computing sentiment as the average valence
-    of a document’s words, based on a dictionary whose values have
-    numeric valence scores. Valence scores are set using the
-    `valence()<-` function. Each key in a dictionary may have values
-    with difference valences.
+- **Valence-based sentiment.** This is implemented via
+  `textstat_valence()`, for computing sentiment as the average valence
+  of a document’s words, based on a dictionary whose values have numeric
+  valence scores. Valence scores are set using the `valence()<-`
+  function. Each key in a dictionary may have values with difference
+  valences.
 
 The package comes with the following built-in dictionaries:
 
@@ -85,7 +82,7 @@ categories from the General Inquirer dictionary:
 ``` r
 library("quanteda.sentiment")
 ## Loading required package: quanteda
-## Package version: 3.2.1
+## Package version: 3.2.5
 ## Unicode version: 14.0
 ## ICU version: 70.1
 ## Parallel computing: 10 of 10 threads used.

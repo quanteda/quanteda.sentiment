@@ -12,7 +12,7 @@ meta(data_dictionary_NRC) <-
     license = "Open, or for commercial for CAD $975.",
     reference = "Mohammad, S. & Turney, P. (2013). Crowdsourcing a Word-Emotion Association Lexicon. _Computational Intelligence_, 29(3), 436--465. https://arxiv.org/abs/1308.6297
 
-Mohammad, S. & Turney, P. (2010). Emotions Evoked by Common Words and Phrases: Using Mechanical Turk to Create an Emotion Lexicon. In _Proceedings of the NAACL-HLT 2010 Workshop on Computational Approaches to Analysis and Generation of Emotion in Text_, June 2010, LA, California. https://dl.acm.org/citation.cfm?id=1860635"
+Mohammad, S. & Turney, P. (2010). Emotions Evoked by Common Words and Phrases: Using Mechanical Turk to Create an Emotion Lexicon. In _Proceedings of the NAACL-HLT 2010 Workshop on Computational Approaches to Analysis and Generation of Emotion in Text_, June 2010, LA, California. https://dl.acm.org/doi/10.5555/1860631.1860635"
     )
 
 polarity(data_dictionary_NRC) <- list(pos = c("positive"), neg = c("negative"))

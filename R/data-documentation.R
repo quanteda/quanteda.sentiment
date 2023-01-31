@@ -17,7 +17,7 @@
 #' Young and Soroka (2012) also suggest the use of a pre-processing script to
 #' remove specific cases of some words (i.e., "good bye", or "nobody better",
 #' which should not be counted as positive). Pre-processing scripts are
-#' available at <http://lexicoder.com>.
+#' available at <https://www.snsoroka.com/data-lexicoder/>.
 #' @section License and Conditions:
 #'   The LSD is available for non-commercial academic purposes only. By using
 #'   `data_dictionary_LSD2015`, you accept these terms.
@@ -40,12 +40,11 @@
 #'   the Lexicoder Sentiment Dictionary and related resources.
 #
 #'   Young, L. & Soroka, S. (2012). *Lexicoder Sentiment
-#'   Dictionary*. Available at <http://lexicoder.com>.
+#'   Dictionary*. Available at <https://www.snsoroka.com/data-lexicoder/>.
 #'
-#'   Young, L. & Soroka, S. (2012). [Affective News: The Automated Coding of
-#'   Sentiment in Political
-#'   Texts](https://doi.org/10.1080/10584609.2012.671234). *Political
-#'   Communication*, 29(2), 205--231.
+#'   Young, L. & Soroka, S. (2012). Affective News: The Automated Coding of
+#'   Sentiment in Political Texts. *Political Communication*, 29(2), 205--231.
+#'   \doi{10.1080/10584609.2012.671234}
 #' @keywords data
 #' @examples
 #' # checking polarity
@@ -105,10 +104,10 @@
 #'
 #'   Mohammad, S. & Turney, P. (2010). [Emotions Evoked by Common Words and
 #'   Phrases: Using Mechanical Turk to Create an Emotion
-#'   Lexicon](https://dl.acm.org/citation.cfm?id=1860635). In *Proceedings of
+#'   Lexicon](https://dl.acm.org/doi/10.5555/1860631.1860635). In *Proceedings of
 #'   the NAACL-HLT 2010 Workshop on Computational Approaches to Analysis and
 #'   Generation of Emotion in Text*, June 2010, LA, California.
-#' @source <http://sentiment.nrc.ca/lexicons-for-research>
+#' @source <https://nrc.canada.ca/en/research-development/products-services/technical-advisory-services/sentiment-emotion-lexicons>
 #'
 #' See also <http://saifmohammad.com/WebPages/AccessResource.htm>
 #' @section License and Terms of Use:
@@ -169,7 +168,7 @@
 #' May 10--14, 2005, Chiba, Japan.
 #' @section License:
 #' Unknown.
-#' @source <http://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html>
+#' @source <https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html>
 #' @keywords data
 "data_dictionary_HuLiu"
 
@@ -178,9 +177,8 @@
 #' A \pkg{quanteda} [dictionary][quanteda::dictionary] object containing the
 #' *Positiv* and *Negativ* dictionary entries from the augmented
 #' General Inquirer. These are new valence categories described at
-#' <http://www.wjh.harvard.edu/~inquirer/homecat.htm> but also including the
-#' terms from the [yes](http://www.wjh.harvard.edu/~inquirer/Yes.html) and
-#' [no](http://www.wjh.harvard.edu/~inquirer/No.html) dictionary entries.
+#' `http://www.wjh.harvard.edu/~inquirer/homecat.htm` but also including the
+#' terms from the "yes" "no" dictionary entries.
 #' @format 
 #' A [dictionary] of fixed word patterns with two keys:
 #' * `positive`: 1,653 words with positive polarity
@@ -188,7 +186,8 @@
 #' @references Stone, P.J., Dunphy, C.D., & Smith, M.S. (1966).
 #'   *The General Inquirer: A Computer Approach to Content Analysis.*
 #'   Cambridge, MA: MIT Press.
-#' @source <http://www.wjh.harvard.edu/~inquirer/spreadsheet_guide.htm>
+#' @source `http://www.wjh.harvard.edu/~inquirer/spreadsheet_guide.htm` --
+#'   although this site ceased operating some time in 2021
 #' @keywords data
 "data_dictionary_geninqposneg"
 
@@ -204,7 +203,7 @@
 #' interval of -1 to 1. Note that the version implemented in
 #' \pkg{quanteda.dictionaries} uses a binary classification into positive
 #' (weight > 0) and negative (weight < 0) features.
-#' @source <http://wortschatz.uni-leipzig.de/en/download/>
+#' @source <https://wortschatz.uni-leipzig.de/en/download/>
 #' @references
 #'   Remus, R., Quasthoff U., and Heyer, G. (2010). [SentiWS: a Publicly
 #'   Available German-language Resource for Sentiment
@@ -221,7 +220,7 @@
 #' Nielsen's (2011) 'new ANEW' valenced word list, a publicly available list of
 #' English words rated for valence with values between -5 (negative) and +5
 #' (positive). AFINN-111, the latest version, contains 2,477 words and phrases.
-#' @source <http://www2.imm.dtu.dk/pubdb/views/publication_details.php?id=6010>
+#' @source <http://www2.imm.dtu.dk/pubdb/pubs/6010-full.html>
 #' @references
 #'   Nielsen, F. Å. (2011). [A new ANEW: Evaluation of a Word List for Sentiment
 #'   Analysis in Microblogs.](https://arxiv.org/abs/1103.2903) In *Proceedings
@@ -231,7 +230,7 @@
 #' A [dictionary] with one key, `AFINN`, with valences from -5 (negative) to +5
 #' (positive).
 #' @section License:
-#' [Open Database License (ODbL) v1.0](http://www.opendatacommons.org/licenses/odbl/1.0/)
+#' [Open Database License (ODbL) v1.0](https://opendatacommons.org/licenses/odbl/1-0/)
 #' @keywords data
 "data_dictionary_AFINN"
 
@@ -281,11 +280,12 @@
 #' \item{`neg_negative`}{19,750 terms indicating a negative word preceded
 #' by a negation (used to convey positive sentiment)}
 #' }
-#' @source <https://doi.org/10.7910/DVN/BKBXWD>
+#' @source \doi{10.7910/DVN/BKBXWD}
 #' @references
-#'   Rauh, C. (2018). [Validating a Sentiment Dictionary for German Political
-#'   Language: A Workbench Note](https://doi.org/10.1080/19331681.2018.1485608).
+#'   Rauh, C. (2018). Validating a Sentiment Dictionary for German Political
+#'   Language: A Workbench Note. 
 #'   *Journal of Information Technology & Politics*, 15(4), 319--343.
+#'   \doi{10.1080/19331681.2018.1485608}
 #'
 #'   Remus, R., Quasthoff U., & Heyer, G. (2010). "[SentiWS - a Publicly
 #'   Available German-language Resource for Sentiment
@@ -322,11 +322,11 @@
 #' categories are "negative" (2355 features), "positive" (354), "uncertainty" (297), "litigious" (903),
 #' "constraining" (184), "superfluous" (56), "interesting" (68), "modal words strong" (68)
 #' and "modal words weak" (0).
-#' @source <http://sraf.nd.edu/textual-analysis/resources/>
+#' @source <https://sraf.nd.edu/loughranmcdonald-master-dictionary/>
 #' @references
-#'   Loughran, T. & McDonald, B. (2011). [When 
-#'   is a Liability not a Liability? Textual Analysis, Dictionaries, and 10-Ks](https://doi.org/10.1111/j.1540-6261.2010.01625.x). 
-#'   *Journal of Finance*, 66(1), 35--65.
+#'   Loughran, T. & McDonald, B. (2011). When is a Liability not a Liability?
+#'   Textual Analysis, Dictionaries, and 10-Ks.
+#'   *Journal of Finance*, 66(1), 35--65.  \doi{10.1111/j.1540-6261.2010.01625.x}
 #' @keywords data
 "data_dictionary_LoughranMcDonald"
 

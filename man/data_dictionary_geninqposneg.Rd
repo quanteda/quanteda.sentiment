@@ -12,7 +12,8 @@ A \link{dictionary} of fixed word patterns with two keys:
 }
 }
 \source{
-\url{http://www.wjh.harvard.edu/~inquirer/spreadsheet_guide.htm}
+\verb{http://www.wjh.harvard.edu/~inquirer/spreadsheet_guide.htm} --
+although this site ceased operating some time in 2021
 }
 \usage{
 data_dictionary_geninqposneg
@@ -21,9 +22,8 @@ data_dictionary_geninqposneg
 A \pkg{quanteda} \link[quanteda:dictionary]{dictionary} object containing the
 \emph{Positiv} and \emph{Negativ} dictionary entries from the augmented
 General Inquirer. These are new valence categories described at
-\url{http://www.wjh.harvard.edu/~inquirer/homecat.htm} but also including the
-terms from the \href{http://www.wjh.harvard.edu/~inquirer/Yes.html}{yes} and
-\href{http://www.wjh.harvard.edu/~inquirer/No.html}{no} dictionary entries.
+\verb{http://www.wjh.harvard.edu/~inquirer/homecat.htm} but also including the
+terms from the "yes" "no" dictionary entries.
 }
 \references{
 Stone, P.J., Dunphy, C.D., & Smith, M.S. (1966).

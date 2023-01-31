@@ -4,7 +4,7 @@
 \name{quanteda.sentiment-package}
 \alias{quanteda.sentiment}
 \alias{quanteda.sentiment-package}
-\title{quanteda.sentiment: Sentiment analysis using quanteda}
+\title{quanteda.sentiment: Sentiment Analysis using 'quanteda'}
 \description{
 Adds functions and dictionaries for computing sentiment using the 'quanteda' package.
 }
