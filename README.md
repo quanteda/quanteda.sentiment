@@ -4,13 +4,14 @@
 <!-- badges: start -->
 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/quanteda.sentiment)](https://cran.r-project.org/package=quanteda.sentiment)
-[![](https://img.shields.io/badge/devel%20version-0.3-royalblue.svg)](https://github.com/quanteda/quanteda.sentiment)
+[![](https://img.shields.io/badge/devel%20version-0.31-royalblue.svg)](https://github.com/quanteda/quanteda.sentiment)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R build
 status](https://github.com/quanteda/quanteda.sentiment/workflows/R-CMD-check/badge.svg)](https://github.com/quanteda/quanteda.sentiment/actions)
 [![Codecov test
 coverage](https://codecov.io/gh/quanteda/quanteda.sentiment/branch/master/graph/badge.svg)](https://app.codecov.io/gh/quanteda/quanteda.sentiment?branch=master)
+[![R-CMD-check](https://github.com/quanteda/quanteda.sentiment/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/quanteda/quanteda.sentiment/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 ## Installation
@@ -82,9 +83,9 @@ categories from the General Inquirer dictionary:
 ``` r
 library("quanteda.sentiment")
 ## Loading required package: quanteda
-## Package version: 3.2.5
+## Package version: 4.0.0
 ## Unicode version: 14.0
-## ICU version: 70.1
+## ICU version: 71.1
 ## Parallel computing: 10 of 10 threads used.
 ## See https://quanteda.io for tutorials and examples.
 ## 
