@@ -7,8 +7,6 @@
 [![](https://img.shields.io/badge/devel%20version-0.31-royalblue.svg)](https://github.com/quanteda/quanteda.sentiment)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![R build
-status](https://github.com/quanteda/quanteda.sentiment/workflows/R-CMD-check/badge.svg)](https://github.com/quanteda/quanteda.sentiment/actions)
 [![Codecov test
 coverage](https://codecov.io/gh/quanteda/quanteda.sentiment/branch/master/graph/badge.svg)](https://app.codecov.io/gh/quanteda/quanteda.sentiment?branch=master)
 [![R-CMD-check](https://github.com/quanteda/quanteda.sentiment/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/quanteda/quanteda.sentiment/actions/workflows/R-CMD-check.yaml)
